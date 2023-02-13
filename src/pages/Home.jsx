@@ -20,7 +20,7 @@ const Home = () => {
     /*const navigate = useNavigate();*/
 
     return (
-        <div className="hero min-h-screen overflow-hidden">
+        <div className="hero min-h-screen overflow-hidden" style={{minHeight: 'calc(100vh - 64px)'}}>
             <div className="flex flex-col p-0 lg:flex-row lg:p-16 2xl:max-w-screen-2xl w-screen" style={{gap: '16px',}}>
                 <SlowPhotoCarousel images={[Chris1, Chris2, Chris3, Chris4, Chris5, Chris6, Chris7, Chris8, Chris9, Chris10, Chris11, Chris12, Chris13]} className='lg:w-3/5'/>
                 <div className='lg:min-w-1/2 lg:p-0 p-8 flex flex-col justify-between'>
