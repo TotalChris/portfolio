@@ -1,0 +1,4 @@
+@keyframes carousel {
+    0% {transform: translateX(calc(216px * 6.5));}
+    100% {transform: translateX(calc(-216px * 6.5));}
+}
