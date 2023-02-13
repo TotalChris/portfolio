@@ -31,10 +31,10 @@ const SlowPhotoCarousel = ({images, style, className}) => {
         <div style={carouselTrackStyle} className={className}>
             <div style={carouselStyle}>
                 {images.map((img, idx) => {
-                    return <img src={img} key={idx} style={childImageStyle} />
+                    return <img src={img} key={idx} style={childImageStyle} alt='Chris' />
                 })}
                 {images.map((img, idx) => {
-                    return <img src={img} key={idx} style={childImageStyle} />
+                    return <img src={img} key={idx} style={childImageStyle} alt='Chris' />
                 })}
             </div>
         </div>
