@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Resume from "./pages/Resume";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/resume' element={<Resume />} />
+                <Route path='/not-found' element={<NotFound />} />
             </Routes>
         </Router>
     </div>
