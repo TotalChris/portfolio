@@ -32,9 +32,16 @@ const Navbar = () => {
 
 
     const handleSubmit = () => {
-        navigate(location.pathname + (location.pathname.length === 1 ? '' : '/') + query.toLowerCase());
+        navigate(location.pathname + (location.pathname.length === 1 ? '' : '/') + query.toLowerCase().replace(/\s/g, ''));
+        document.querySelector('#navbarInput').blur()
         setQuery('')
         setFieldFocus(false);
+    }
+
+    const handleKeyPress = (e) => {
+        if(e.keyCode === 13){
+            handleSubmit();
+        }
     }
 
     return (
@@ -49,7 +56,7 @@ const Navbar = () => {
                         })
                     ))}
                     <div onFocus={handleFocus} className='flex justify-center grow mr-4'>
-                        <input type='text' placeholder={( !fieldFocus ? 'menu' : 'type anything...' )} className='text-xl input input-ghost min-w-max px-0 bg-transparent focus:outline-0 dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => setQuery(e.target.value)}/>
+                        <input id='navbarInput' type='text' placeholder={( !fieldFocus ? 'menu' : 'type anything...' )} className='text-xl input input-ghost min-w-max px-0 bg-transparent focus:outline-0 dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleKeyPress}/>
                         {( fieldFocus && (
                             <IconContext.Provider
                                 value={{ size: '30px', style: { strokeWidth: (query === '' ? '0' : '.5'), overflow: 'visible', margin: '4px', }}}
