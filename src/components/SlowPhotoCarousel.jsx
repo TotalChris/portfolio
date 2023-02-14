@@ -5,7 +5,7 @@ const SlowPhotoCarousel = ({images, style, className}) => {
 
     const carouselTrackStyle = {
         ...style,
-        webkitMaskImage: 'linear-gradient(90deg, #0000 0, #000 25%, #000 75%, #0000)',
+        WebkitMaskImage: 'linear-gradient(90deg, #0000 0, #000 25%, #000 75%, #0000)',
         overflow: 'hidden',
     }
 
