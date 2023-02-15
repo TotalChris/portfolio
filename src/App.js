@@ -9,7 +9,7 @@ import OneHundredMornings from "./pages/OneHundredMornings";
 
 function App() {
   return (
-    <div className='app bg-base-200 dark:bg-black dark:text-primary-content'>
+    <div className='app bg-base-200 dark:bg-black dark:text-primary-content min-h-screen'>
         <Router>
             <Navbar />
             <Routes>
