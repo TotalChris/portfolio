@@ -13,7 +13,7 @@ const Navbar = () => {
     const [path, setPath] = useState([]);
     const [query, setQuery] = useState('');
     const [fieldFocus, setFieldFocus] = useState(false);
-    let {loggedIn} = useAuthStatus();
+    const {loggedIn} = useAuthStatus();
 
     useEffect(() => {
         setPath(location.pathname.split('/'));
@@ -29,9 +29,7 @@ const Navbar = () => {
             setFieldFocus(false);
             setQuery('')
         }
-
     }
-
 
     const handleSubmit = () => {
         navigate(location.pathname + (location.pathname.length === 1 ? '' : '/') + query.toLowerCase().replace(/\s/g, ''));
