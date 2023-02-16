@@ -17,6 +17,7 @@ const Navbar = () => {
 
     useEffect(() => {
         setPath(location.pathname.split('/'));
+        console.log('loggedIn: ' + loggedIn)
     }, [location, loggedIn])
 
     const handleFocus = () => {

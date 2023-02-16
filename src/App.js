@@ -6,7 +6,6 @@ import NotFound from "./pages/NotFound";
 import Construction from "./pages/Construction";
 import OneHundredMornings from "./pages/OneHundredMornings";
 import Login from "./pages/Login";
-import "./firebase.config";
 import Signout from "./pages/Signout";
 
 function App() {
