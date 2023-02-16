@@ -5,9 +5,12 @@ import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
 import Construction from "./pages/Construction";
 import OneHundredMornings from "./pages/OneHundredMornings";
-
+import Login from "./pages/Login";
+import "./firebase.config";
+import Signout from "./pages/Signout";
 
 function App() {
+
   return (
     <div className='app bg-base-200 dark:bg-black dark:text-primary-content min-h-screen'>
         <Router>
@@ -18,7 +21,9 @@ function App() {
                 <Route path='/resume' element={<Construction />} />
                 <Route path='/under-construction' element={<Construction />} />
                 <Route path='/9549026547173040731159' element={<OneHundredMornings />} />
+                <Route path='/log-in' element={<Login />} />
                 <Route path='/not-found' element={<NotFound />} />
+                <Route path='/log-out' element={<Signout />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </Router>
