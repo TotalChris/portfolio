@@ -88,18 +88,19 @@ const Navbar = () => {
                     </Link>
                 ))}
             </div>
-            <div className="collapse-content bg-transparent text-black dark:text-primary-content ml-4 flex gap-3" style={{fontFamily: 'Roboto Mono'}}>
+            <div className="collapse-content bg-transparent text-black dark:text-primary-content ml-4 flex gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
                 <div className='font-bold'>suggestions:</div>
                 {(path[1] === '' && (
                     <>
-                        <div className="badge badge-outline p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('contact')}>contact</div>
-                        <div className="badge badge-outline p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('resume')}>resume</div>
+                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('contact')}>contact</div>
+                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('resume')}>resume</div>
+                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('not-found')}>not-found</div>
                     </>
                 ))}
                 {loggedIn ? (
-                    <div className="badge badge-outline p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-out')}>log-out</div>
+                    <div className="badge badge-outline p-3 rounded-full min-w-max text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-out')}>log-out</div>
                 ) : (
-                    <div className="badge badge-outline p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-in')}>log-in</div>
+                    <div className="badge badge-outline p-3 rounded-full min-w-max text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-in')}>log-in</div>
                 )}
 
             </div>
