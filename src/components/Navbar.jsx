@@ -3,7 +3,7 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import {BsArrowRightCircle} from 'react-icons/bs'
 import { IconContext } from "react-icons";
 import Chris from '../assets/carousel/Chris-7.jpg'
-import {useAuthStatus} from "../hooks/useAuthStatus";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
 import '../styles/Navbar.css'
 
 const Navbar = () => {
@@ -13,12 +13,22 @@ const Navbar = () => {
     const [path, setPath] = useState([]);
     const [query, setQuery] = useState('');
     const [fieldFocus, setFieldFocus] = useState(false);
-    const {loggedIn} = useAuthStatus();
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
         setPath(location.pathname.split('/'));
-        console.log('loggedIn: ' + loggedIn)
+        console.log('loggedIn: ' + loggedIn);
     }, [location, loggedIn])
+
+    useEffect(() => {
+        onAuthStateChanged(getAuth(), (user) => {
+            if(user){
+                setLoggedIn(true)
+            } else {
+                setLoggedIn(false)
+            }
+        })
+    })
 
     const handleFocus = () => {
         setFieldFocus(true);
