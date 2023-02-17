@@ -14,10 +14,10 @@ import Chris11 from "../assets/carousel/Chris-11.jpg";
 import Chris12 from "../assets/carousel/Chris-12.jpg";
 import Chris13 from "../assets/carousel/Chris-13.jpg";
 
-/*import {useNavigate} from "react-router-dom";*/
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
-    /*const navigate = useNavigate();*/
+    const navigate = useNavigate();
 
     return (
         <div className="hero min-h-screen overflow-hidden">
@@ -27,7 +27,7 @@ const Home = () => {
                     <h1 className="text-5xl font-bold" style={{fontFamily: 'Roboto Mono',}}>Hi, I'm Chris.</h1>
                     <p className='py-4' style={{maxWidth: '440px'}}>I'm a 22-year-old independent web developer based in the United States. I have big dreams about what the web and its portability and capability offers us. I have extensive experience in vanilla web design, and I am becoming familiar with popular frameworks like React.</p>
                     <div className='flex sm:flex-row flex-col gap-1'>
-                        {/* <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/resume')}}>My Resume</button> */}
+                        <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/resume')}}>My Resume</button>
                         <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white" onClick={() => {window.location.href = 'https://github.com/sponsors/TotalChris'}}>Sponsor</button>
                         {/* <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/contact')}}>Contact</button> */}
                     </div>
