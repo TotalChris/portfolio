@@ -2,18 +2,28 @@ import React from 'react';
 
 const JobEntry = ({jobData}) => {
 
-    const {company, startDate, endDate, title, responsibilities} = jobData
+    const {company, startDate, endDate, title, responsibilities, tags, location} = jobData
 
-    const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', year: "numeric"})
+    const dateFormatter = Intl.DateTimeFormat("en-US", {month: '2-digit', year: "numeric"})
 
     return (
-        <div className='text-2xl py-4' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='text-md py-4' style={{fontFamily: 'Roboto Mono'}}>
             <div className='flex flex-row'>
-                <h1 className='grow'><span className='font-bold'>{company.toLowerCase()}</span><span
-                    className=''> / {title.toLowerCase()}</span></h1>
-                <h1 className='text-neutral-500'>{dateFormatter.format(startDate.toDate()).toLowerCase() + " - " + dateFormatter.format(endDate.toDate()).toLowerCase()}</h1>
+                <h1 className='grow'><span className='font-bold'>{company.toLowerCase()}</span><span className='md:hidden'>&nbsp;/&nbsp;{title.toLowerCase()}</span></h1>
+                <h1 className='text-neutral-500 text-right font-bold hidden md:block'>{dateFormatter.format(startDate.toDate()).toLowerCase() + " - " + dateFormatter.format(endDate.toDate()).toLowerCase()}</h1>
             </div>
-            <ul className='text-xl list-disc ml-6 mt-4' style={{fontFamily: 'Inter'}}>
+            <div className='flex flex-row'>
+                <h1 className='grow hidden md:block'><span className=''> / {title.toLowerCase()}</span></h1>
+                <h1 className='text-neutral-500 text-right hidden md:block'>{location.toLowerCase()}</h1>
+            </div>
+            <h1 className='text-neutral-500 font-bold block md:hidden'>{dateFormatter.format(startDate.toDate()).toLowerCase() + " - " + dateFormatter.format(endDate.toDate()).toLowerCase()}</h1>
+            <h1 className='text-neutral-500 block md:hidden'>{location.toLowerCase()}</h1>
+            <div className='flex flex-row gap-2 mt-4 overflow-x-scroll w-screen relative -left-8 px-8'>
+                {tags.map((tag) => {
+                    return <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
+                })}
+            </div>
+            <ul className='text-sm list-disc ml-6 mt-4' style={{fontFamily: 'Inter'}}>
                 {
                     responsibilities.map((pt) => {
                             return <li>{pt}</li>

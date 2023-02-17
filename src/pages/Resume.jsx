@@ -32,7 +32,7 @@ const Resume = () => {
     }, [])
 
     return (
-        <div className='pt-24 mx-8'>
+        <div className='pt-24 px-8'>
             <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Resume</h1>
             <hr className='border-black dark:border-white' />
             {(loading ? (
