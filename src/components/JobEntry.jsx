@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import Spinner from "./Spinner";
+import React from 'react';
 
 const JobEntry = ({jobData}) => {
 
-    const {company, startDate, endDate, location, title, responsibilities} = jobData
+    const {company, startDate, endDate, title, responsibilities} = jobData
 
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', year: "numeric"})
 
