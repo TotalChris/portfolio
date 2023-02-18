@@ -24,9 +24,9 @@ const Contact = () => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.formData })
         })
-            .then((s) => {
+            .then(() =>
                 navigate('/contact/thank-you')
-            })
+            )
             .catch(error => alert(error));
         e.preventDefault();
     };
