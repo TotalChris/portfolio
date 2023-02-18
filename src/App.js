@@ -8,6 +8,7 @@ import OneHundredMornings from "./pages/OneHundredMornings";
 import Login from "./pages/Login";
 import Signout from "./pages/Signout";
 import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/contact' element={<Construction />} />
+                <Route path='/contact' element={<Contact />} />
                 <Route path='/resume' element={<Resume />} />
                 <Route path='/under-construction' element={<Construction />} />
                 <Route path='/9549026547173040731159' element={<OneHundredMornings />} />

@@ -9,12 +9,11 @@ const Resume = () => {
 
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [sortType, setSortType] = useState("desc");
 
     const fetchJobs = useCallback(async () => {
         setLoading(true);
         const jobsRef = collection(db, 'jobs');
-        const jobsQuery = await query(jobsRef, orderBy('startDate', sortType));
+        const jobsQuery = await query(jobsRef, orderBy('startDate', 'desc'));
         const jobsSnap = await getDocs(jobsQuery);
 
         const jobs = []
@@ -28,7 +27,7 @@ const Resume = () => {
 
         setJobs(jobs);
         setLoading(false);
-    }, [sortType])
+    }, [])
 
     useEffect(() => {
         fetchJobs();
@@ -39,7 +38,12 @@ const Resume = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Resume</h1>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" onChange={(e) => {setSortType(e.target.checked ? "asc" : "desc");}}/>
+                    <input type="checkbox" onChange={(e) => {
+                        setJobs((prevState) => {
+                            let copy = [...prevState];
+                            return copy.reverse();
+                        }
+                    )}}/>
                     <BsSortUpAlt className='swap-on fill-white w-12 h-12' />
                     <BsSortDown className='swap-off fill-white w-12 h-12' />
                 </label>
