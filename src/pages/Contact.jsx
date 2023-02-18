@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+import {useNavigate} from "react-router-dom";
 const Contact = () => {
+
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         name: '',
@@ -21,7 +24,9 @@ const Contact = () => {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.formData })
         })
-            .then()
+            .then((s) => {
+                navigate('/contact/thank-you')
+            })
             .catch(error => alert(error));
         e.preventDefault();
     };
