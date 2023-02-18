@@ -38,7 +38,7 @@ const Contact = () => {
     return (
         <div className='mx-6 pt-24'  style={{fontFamily: 'Roboto Mono'}}>
             <h1 className='text-6xl'>Contact Me</h1>
-            <form netlify method="POST" onSubmit={handleSubmit} action='/contact/thank-you' className='w-full md:max-w-screen-md'>
+            <form netlify method="POST" onSubmit={handleSubmit} className='w-full md:max-w-screen-md'>
                 <input type="hidden" name="form-name" value="contact" />
                 <div className='flex flex-row gap-8 mt-8 w-full flex-wrap'>
                     <input type="text" name="name" id="name" value={name} onChange={handleChange} placeholder='name' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none grow min-w-full md:min-w-0' />
