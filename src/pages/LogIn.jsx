@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
-const Login = () => {
+const LogIn = () => {
 
     const navigate = useNavigate();
     const [formData, setFormData] = useState({email: '', password: ''});
@@ -53,4 +53,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LogIn;

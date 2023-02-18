@@ -29,7 +29,7 @@ const Home = () => {
                     <div className='flex sm:flex-row flex-col gap-1'>
                         <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/resume')}}>My Resume</button>
                         <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white" onClick={() => {window.location.href = 'https://github.com/sponsors/TotalChris'}}>Sponsor</button>
-                        {/* <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/contact')}}>Contact</button> */}
+                        <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white" onClick={() => {navigate('/contact')}}>Contact</button>
                     </div>
                 </div>
             </div>
