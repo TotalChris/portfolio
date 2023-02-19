@@ -44,8 +44,8 @@ const Resume = () => {
                             return copy.reverse();
                         }
                     )}}/>
-                    <BsSortUpAlt className='swap-on fill-white w-12 h-12' />
-                    <BsSortDown className='swap-off fill-white w-12 h-12' />
+                    <BsSortUpAlt className='swap-on fill-black dark:fill-white w-12 h-12' />
+                    <BsSortDown className='swap-off fill-black dark:fill-white w-12 h-12' />
                 </label>
             </div>
 
