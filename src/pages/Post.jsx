@@ -42,10 +42,22 @@ const Post = () => {
                 <>
                     <HelmetProvider context={helmetContext}>
                     <Helmet>
-                        <title>{post.title}</title>
-                        <meta name="description" content={'Posted by Chris Yates on ' + dateFormatter.format(post.timestamp && post.timestamp.toDate())} />
-                        <meta name="og:image" content={post.header} />
-                        <meta name="og:title" content={post.title}/>
+                        <title>Chris Yates' Blog</title>
+
+                        <meta itemprop="name" content="Chris Yates' Blog" />
+                        <meta itemprop="description" content={post.title} />
+                        <meta itemprop="image" content={post.header} />
+
+                        <meta property="og:url" content={'https://totalchris.com/post/' + params.postId} />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:title" content="Chris Yates' Blog" />
+                        <meta property="og:description" content={post.title} />
+                        <meta property="og:image" content={post.header} />
+
+                        <meta name="twitter:card" content="summary_large_image" />
+                        <meta name="twitter:title" content="Chris Yates' Blog" />
+                        <meta name="twitter:description" content={post.title} />
+                        <meta name="twitter:image" content={post.header} />
                     </Helmet>
                     <img src={post.header} className='w-full h-96 object-cover rounded-3xl text-left' alt='post'/>
                     <h1 className='text-6xl font-bold relative l-0 w-full'>{post.title}</h1>
