@@ -27,6 +27,7 @@ const PostForm = () => {
         return () => {
             isMounted.current = false;
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isMounted]);
 
     const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const PostForm = () => {
         content: '',
     })
 
-    const {title, tags, headerImg, content} = formData;
+    const {title, headerImg, content} = formData;
 
     const storage = getStorage();
 
