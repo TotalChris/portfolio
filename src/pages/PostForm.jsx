@@ -20,7 +20,7 @@ const PostForm = () => {
                 if (user) {
                     setFormData({...formData, userRef: user.uid})
                 } else {
-                    navigate('/sign-in')
+                    navigate('/log-in')
                 }
             })
         }
