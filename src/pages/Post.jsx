@@ -32,7 +32,7 @@ const Post = () => {
     }
 
     return (
-        <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-2 sm:px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
             {(loading ? (
                 <Spinner/>
             ) : (
