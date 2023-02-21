@@ -1,6 +1,5 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import { HelmetProvider } from 'react-helmet-async';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
@@ -16,11 +15,8 @@ import Post from "./pages/Post";
 
 function App() {
 
-    const helmetContext = {};
-
   return (
     <div className='app bg-base-200 dark:bg-black dark:text-primary-content min-h-screen'>
-        <HelmetProvider context={helmetContext} />
         <Router>
             <Navbar />
             <Routes>

@@ -4,7 +4,7 @@ import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
-import {Helmet} from "react-helmet-async";
+import {Helmet, HelmetProvider} from "react-helmet-async";
 
 
 const Post = () => {
@@ -33,12 +33,14 @@ const Post = () => {
         }
     }
 
+    const helmetContext = {};
     return (
         <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-2 sm:px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
             {(loading ? (
                 <Spinner/>
             ) : (
                 <>
+                    <HelmetProvider context={helmetContext}>
                     <Helmet>
                         <title>{post.title}</title>
                         <meta name="description" content={'Posted by Chris Yates on ' + dateFormatter.format(post.timestamp && post.timestamp.toDate())} />
@@ -55,6 +57,7 @@ const Post = () => {
                     <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
                     <hr className='border-black dark:border-white' style={{width: '100%'}}/>
                     <ReactMarkdown className='prose prose-lg dark:!prose-invert w-full '>{post.content}</ReactMarkdown>
+                    </HelmetProvider>
                 </>
             ) )}
 
