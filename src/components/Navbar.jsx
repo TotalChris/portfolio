@@ -5,6 +5,7 @@ import { IconContext } from "react-icons";
 import Chris from '../assets/carousel/Chris-7.jpg'
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import '../styles/Navbar.css'
+import Tag from "./Tag";
 
 const Navbar = () => {
 
@@ -17,7 +18,6 @@ const Navbar = () => {
 
     useEffect(() => {
         setPath(location.pathname.split('/'));
-        console.log('loggedIn: ' + loggedIn);
     }, [location, loggedIn])
 
     useEffect(() => {
@@ -90,18 +90,23 @@ const Navbar = () => {
             </div>
             <div className="collapse-content bg-transparent text-black dark:text-primary-content ml-4 flex gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
                 <div className='font-bold'>suggestions:</div>
-                {(path[1] === '' && (
+                {(path[1] === '' ? (
                     <>
-                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('contact')}>contact</div>
-                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('resume')}>resume</div>
-                        <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('not-found')}>not-found</div>
+                        <Tag text={'resume'} handleClick={() => {setQuery('resume')}}/>
+                        <Tag text={'contact'} handleClick={() => {setQuery('contact')}}/>
+                        {loggedIn ? (
+                            <>
+                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')}></Tag>
+                                <Tag text={'new-post'} handleClick={() => setQuery('new-post')}></Tag>
+                            </>
+                        ) : (
+                            <Tag text={'log-in'} handleClick={() => setQuery('log-in')}></Tag>
+                        )}
                     </>
-                ))}
-                {loggedIn ? (
-                    <div className="badge badge-outline p-3 rounded-full min-w-max text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-out')}>log-out</div>
                 ) : (
-                    <div className="badge badge-outline p-3 rounded-full min-w-max text-black border-black dark:text-white dark:border-white hover:cursor-pointer" onClick={() => setQuery('log-in')}>log-in</div>
-                )}
+                    'none'
+                ) )}
+
 
             </div>
         </div>
