@@ -4,7 +4,7 @@ import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
-import DocumentMeta from 'react-document-meta';
+import {Helmet} from "react-helmet";
 
 
 const Post = () => {
@@ -14,7 +14,6 @@ const Post = () => {
 
     const [loading, setLoading] = useState(true);
     const [post, setPost] = useState({});
-    const [meta, setMeta] = useState({});
 
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
 
@@ -29,23 +28,23 @@ const Post = () => {
         if(postRef.exists()){
             setPost(postRef.data());
             setLoading(false);
-            setMeta({
-                title: post.title,
-                description: 'Posted by Chris Yates on ' + dateFormatter.format(post.timestamp && post.timestamp.toDate()),
-                image: post.header,
-            })
         } else {
             navigate('/not-found')
         }
     }
 
     return (
-        <DocumentMeta meta={meta}>
         <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-2 sm:px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
             {(loading ? (
                 <Spinner/>
             ) : (
                 <>
+                    <Helmet>
+                        <title>{post.title}</title>
+                        <meta name="description" content={'Posted by Chris Yates on ' + dateFormatter.format(post.timestamp && post.timestamp.toDate())} />
+                        <meta name="og:image" content={post.header} />
+                        <meta name="og:title" content={post.title}/>
+                    </Helmet>
                     <img src={post.header} className='w-full h-96 object-cover rounded-3xl text-left' alt='post'/>
                     <h1 className='text-6xl font-bold relative l-0 w-full'>{post.title}</h1>
                     <div className='flex flex-row gap-2 overflow-x-scroll relative l-0 w-full'>
@@ -60,7 +59,6 @@ const Post = () => {
             ) )}
 
         </div>
-        </DocumentMeta>
     );
 };
 
