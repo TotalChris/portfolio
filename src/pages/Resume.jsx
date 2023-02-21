@@ -49,7 +49,7 @@ const Resume = () => {
                 </label>
             </div>
 
-            <hr className='border-black dark:border-white' />
+            <hr className='border-black dark:border-white'/>
             {(loading ? (
                 <Spinner />
             ) :

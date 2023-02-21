@@ -33,9 +33,7 @@ function App() {
                 <Route path="/new-post" element={<PrivateRoute />}>
                     <Route path='/new-post' element={<PostForm />} />
                 </Route>
-                <Route path="/post/:postId" element={<PrivateRoute />}>
-                    <Route path='/post/:postId' element={<Post />} />
-                </Route>
+                <Route path="/post/:postId" element={<Post />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </Router>

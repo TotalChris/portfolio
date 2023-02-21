@@ -11,7 +11,9 @@ const Post = () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState({});
+
+    const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
 
     useEffect(() => {
         fetchPost();
@@ -30,7 +32,7 @@ const Post = () => {
     }
 
     return (
-        <div className='pt-24 flex flex-col items-center gap-8 mx-4 px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
             {(loading ? (
                 <Spinner/>
             ) : (
@@ -42,6 +44,8 @@ const Post = () => {
                             return <div key={i} className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
                         })}
                     </div>
+                    <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
+                    <hr className='border-black dark:border-white' style={{width: '100%'}}/>
                     <p className='text-xl w-full'>{post.content}</p>
                     <div></div>
                 </>
