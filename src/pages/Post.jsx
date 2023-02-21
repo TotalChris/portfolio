@@ -3,6 +3,8 @@ import {useParams, useNavigate} from "react-router-dom";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
+import ReactMarkdown from "react-markdown";
+import DocumentMeta from 'react-document-meta';
 
 
 const Post = () => {
@@ -12,6 +14,7 @@ const Post = () => {
 
     const [loading, setLoading] = useState(true);
     const [post, setPost] = useState({});
+    const [meta, setMeta] = useState({});
 
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
 
@@ -26,12 +29,18 @@ const Post = () => {
         if(postRef.exists()){
             setPost(postRef.data());
             setLoading(false);
+            setMeta({
+                title: post.title,
+                description: 'Posted by Chris Yates on ' + dateFormatter.format(post.timestamp && post.timestamp.toDate()),
+                image: post.header,
+            })
         } else {
             navigate('/not-found')
         }
     }
 
     return (
+        <DocumentMeta meta={meta}>
         <div className='pt-24 flex flex-col items-center gap-6 mx-4 px-2 sm:px-12 lg:px-36 xl:px-64' style={{fontFamily: 'Roboto Mono'}}>
             {(loading ? (
                 <Spinner/>
@@ -46,12 +55,12 @@ const Post = () => {
                     </div>
                     <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
                     <hr className='border-black dark:border-white' style={{width: '100%'}}/>
-                    <p className='text-xl w-full'>{post.content}</p>
-                    <div></div>
+                    <ReactMarkdown className='prose prose-lg dark:!prose-invert w-full '>{post.content}</ReactMarkdown>
                 </>
             ) )}
 
         </div>
+        </DocumentMeta>
     );
 };
 
