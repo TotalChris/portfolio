@@ -59,7 +59,7 @@ const PostForm = () => {
         }
 
         await setDoc(doc(db, 'posts', title.trim().toLowerCase().replace(/ /g, "-")), formDataCopy);
-        navigate('/post/' + title.trim().toLowerCase().replace(/ /g, "-"))
+        navigate('/posts/' + title.trim().toLowerCase().replace(/ /g, "-"))
     }
 
     const handleChange = (e) => {
