@@ -4,7 +4,7 @@ import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 
 
 const Post = () => {
