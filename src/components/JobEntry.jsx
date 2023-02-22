@@ -1,6 +1,7 @@
 import React from 'react';
+import Tag from "./Tag";
 
-const JobEntry = ({jobData}) => {
+const JobEntry = ({jobData, handleFilterPush}) => {
 
     const {company, startDate, endDate, title, responsibilities, tags, location, ongoing} = jobData
 
@@ -19,14 +20,14 @@ const JobEntry = ({jobData}) => {
             <h1 className='text-neutral-500 font-bold block md:hidden'>{dateFormatter.format(startDate.toDate()) + " - " + ( ongoing ? 'ongoing' : dateFormatter.format(endDate.toDate()) )}</h1>
             <h1 className='text-neutral-500 block md:hidden'>{location}</h1>
             <div className='flex flex-row gap-2 mt-4 overflow-x-scroll w-screen relative -left-8 px-8'>
-                {tags.map((tag) => {
-                    return <div className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
+                {tags.map((tag, i) => {
+                    return <Tag text={tag} handleClick={handleFilterPush} key={i}/>
                 })}
             </div>
             <ul className='text-sm list-disc ml-6 mt-4' style={{fontFamily: 'Inter'}}>
                 {
-                    responsibilities.map((pt) => {
-                            return <li>{pt}</li>
+                    responsibilities.map((pt, i) => {
+                            return <li key={i}>{pt}</li>
                         }
                     )}
             </ul>

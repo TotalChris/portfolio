@@ -12,6 +12,8 @@ import ThankYou from "./pages/ThankYou";
 import PostForm from "./pages/PostForm";
 import PrivateRoute from "./components/PrivateRoute";
 import Post from "./pages/Post";
+import Redirect from "./components/Redirect";
+import Posts from "./pages/Posts";
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path="/title/index.html" element={<Redirect to='https://titlenotes.netlify.app/' />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/contact/thank-you' element={<ThankYou />} />
                 <Route path='/resume' element={<Resume />} />
@@ -33,6 +36,7 @@ function App() {
                 <Route path="/new-post" element={<PrivateRoute />}>
                     <Route path='/new-post' element={<PostForm />} />
                 </Route>
+                <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:postId" element={<Post />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>

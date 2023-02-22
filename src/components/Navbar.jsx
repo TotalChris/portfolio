@@ -94,10 +94,11 @@ const Navbar = () => {
                     <>
                         <Tag text={'resume'} handleClick={() => {setQuery('resume')}}/>
                         <Tag text={'contact'} handleClick={() => {setQuery('contact')}}/>
+                        <Tag text={'posts'} handleClick={() => {setQuery('posts')}}/>
                         {loggedIn ? (
                             <>
-                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')}></Tag>
                                 <Tag text={'new-post'} handleClick={() => setQuery('new-post')}></Tag>
+                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')}></Tag>
                             </>
                         ) : (
                             <Tag text={'log-in'} handleClick={() => setQuery('log-in')}></Tag>
