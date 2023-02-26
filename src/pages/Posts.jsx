@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
 import Spinner from "../components/Spinner";
 import {db} from "../firebase.config";
@@ -11,21 +11,26 @@ const Posts = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filters, setFilters] = useState([]);
+    const sortBox = useRef();
+
 
     const addFilter = (text) => {
-        setFilters((prevState) => {
-            return [...prevState, text]
-        })
+        if(!filters.includes(text)){
+            setFilters((prevState) => {
+                return [...prevState, text]
+            })
+        }
     }
 
     const fetchPosts = useCallback(async () => {
         setLoading(true);
+        const sortType = (sortBox.current.checked ? 'asc' :  'desc')
         const postsRef = collection(db, 'posts');
         let postsQuery;
         if(filters.length > 0){
-            postsQuery = await query(postsRef, orderBy('timestamp', 'desc'), where('tags', 'array-contains-any', filters));
+            postsQuery = await query(postsRef, orderBy('timestamp', sortType), where('tags', 'array-contains-any', filters));
         } else {
-            postsQuery = await query(postsRef, orderBy('timestamp', 'desc'));
+            postsQuery = await query(postsRef, orderBy('timestamp', sortType));
         }
         const postsSnap = await getDocs(postsQuery);
 
@@ -57,7 +62,7 @@ const Posts = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" onChange={(e) => {
+                    <input type="checkbox" ref={sortBox} onChange={(e) => {
                         setPosts((prevState) => {
                                 let copy = [...prevState];
                                 return copy.reverse();
@@ -72,7 +77,7 @@ const Posts = () => {
                 <div className='flex flex-row mt-8 gap-2'>
                     <p className='text-lg mr-2'>Filters:</p>
                     {filters.map((filter, i) => {
-                        return <Tag text={filter} handleRemove={() => {removeFilter(filter)}} removable={true} key={i}/>
+                        return <Tag text={filter} handleRemove={() => {removeFilter(filter)}} removable={true} key={i} className='tag-invert'/>
                     })}
                 </div>
             )}

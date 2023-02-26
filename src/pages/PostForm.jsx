@@ -17,6 +17,7 @@ const PostForm = () => {
     const auth = getAuth();
     const isMounted = useRef(true);
     const [loading, setLoading] = useState(false);
+    const [useEditor, setUseEditor] = useState(true);
     const parser = new MarkdownIt();
     const formRef = useRef();
 
@@ -41,6 +42,7 @@ const PostForm = () => {
         tags: [],
         headerImg: undefined,
         content: '',
+        markdownFile: undefined,
     })
 
     const {title, headerImg} = formData;
@@ -54,19 +56,23 @@ const PostForm = () => {
             const snapshot = await uploadBytes(ref(storage, crypto.randomUUID()), headerImg)
             formDataCopy.header = await getDownloadURL(snapshot.ref);
             delete formDataCopy.headerImg;
+
+            if(!useEditor){
+               formDataCopy.content = await formDataCopy.markdownFile.text();
+            }
+            delete formDataCopy.markdownFile;
+            await setDoc(doc(db, 'posts', title.trim().toLowerCase().replace(/ /g, "-")), formDataCopy);
+            navigate('/posts/' + title.trim().toLowerCase().replace(/ /g, "-"))
         } catch (e) {
             console.log(e);
         }
-
-        await setDoc(doc(db, 'posts', title.trim().toLowerCase().replace(/ /g, "-")), formDataCopy);
-        navigate('/posts/' + title.trim().toLowerCase().replace(/ /g, "-"))
     }
 
     const handleChange = (e) => {
         setFormData((prevState) => {
             return {
                 ...prevState,
-                [e.target.id]: (e.target.id === 'headerImg' ? e.target.files[0] : e.target.value),
+                [e.target.id]: (e.target.id === 'headerImg' || e.target.id === 'markdownFile' ? e.target.files[0] : e.target.value),
             }
         })
     };
@@ -97,9 +103,20 @@ const PostForm = () => {
                 <TagInput onChange={handleChange} id="tags"/>
                 <div className='flex flex-row items-center mt-8'>
                     <label htmlFor="headerImg" className='text-xl mr-8'>Image:</label>
-                    <input type="file" required={true} name="headerImg" onChange={handleChange} id='headerImg' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none" />
+                    <input type="file" name="headerImg" onChange={handleChange} id='headerImg' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none" />
                 </div>
-                <MdEditor style={{ width: '100%', height: '500px' }} className='mt-8' renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
+                <div className="tabs w-full mt-8 mb-2">
+                    <button type="button" className={"tab tab-bordered w-1/2 dark:text-white border-black h-12 " + (useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(true)}>Manual Input</button>
+                    <button type="button" className={"tab tab-bordered w-1/2 dark:text-white border-black h-12 " + (!useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(false)}>File Upload</button>
+                </div>
+                {(useEditor ? (
+                    <MdEditor style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
+                ) : (
+                    <div className='flex flex-col items-center mt-8'>
+                        <label htmlFor="markdownFile" className='text-xl w-full'>Markdown or Text File:</label>
+                        <input type="file" name="markdownFile" accept=".md,.txt" onChange={handleChange} id='markdownFile' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none w-full mt-4" />
+                    </div>
+                ) )}
                 <button type='button' onClick={handleSubmitClick} className={'ml-auto btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mt-8 min-h-fit' + (loading && 'btn-disabled')}>
                     {loading ? <Spinner /> : 'Submit'}
                 </button>

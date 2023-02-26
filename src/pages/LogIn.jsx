@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+import {getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from 'firebase/auth'
 const LogIn = () => {
 
     const navigate = useNavigate();
@@ -22,6 +22,7 @@ const LogIn = () => {
         setError(false);
         try{
             const auth = getAuth();
+            await setPersistence(auth, browserLocalPersistence)
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             if (userCredential.user) {
                 navigate('/');

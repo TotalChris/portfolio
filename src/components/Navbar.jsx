@@ -92,16 +92,16 @@ const Navbar = () => {
                 <div className='font-bold'>suggestions:</div>
                 {(path[1] === '' ? (
                     <>
-                        <Tag text={'resume'} handleClick={() => {setQuery('resume')}}/>
-                        <Tag text={'contact'} handleClick={() => {setQuery('contact')}}/>
-                        <Tag text={'posts'} handleClick={() => {setQuery('posts')}}/>
+                        <Tag text={'resume'} handleClick={() => {setQuery('resume')}} className='hover:tag-invert'/>
+                        <Tag text={'contact'} handleClick={() => {setQuery('contact')}} className='hover:tag-invert'/>
+                        <Tag text={'posts'} handleClick={() => {setQuery('posts')}} className='hover:tag-invert'/>
                         {loggedIn ? (
                             <>
-                                <Tag text={'new-post'} handleClick={() => setQuery('new-post')}></Tag>
-                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')}></Tag>
+                                <Tag text={'new-post'} handleClick={() => setQuery('new-post')} className='hover:tag-invert'></Tag>
+                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')} className='hover:tag-invert'></Tag>
                             </>
                         ) : (
-                            <Tag text={'log-in'} handleClick={() => setQuery('log-in')}></Tag>
+                            <Tag text={'log-in'} handleClick={() => setQuery('log-in')} className='hover:tag-invert'></Tag>
                         )}
                     </>
                 ) : (

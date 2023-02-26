@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import JobEntry from "../components/JobEntry";
 import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
 import Spinner from "../components/Spinner";
@@ -10,13 +10,16 @@ const Resume = () => {
 
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const sortBox = useRef();
 
     const [filters, setFilters] = useState([]);
 
     const addFilter = (text) => {
-        setFilters((prevState) => {
-            return [...prevState, text]
-        })
+        if(!filters.includes(text)){
+            setFilters((prevState) => {
+                return [...prevState, text]
+            })
+        }
     }
     const removeFilter = (filter) => {
         setFilters((prevState) => {
@@ -26,12 +29,15 @@ const Resume = () => {
 
     const fetchJobs = useCallback(async () => {
         setLoading(true);
+
+        const sortType = (sortBox.current.checked ? 'asc' :  'desc')
+
         const jobsRef = collection(db, 'jobs');
         let jobsQuery;
         if(filters.length > 0){
-            jobsQuery = await query(jobsRef, orderBy('startDate', 'desc'), where('tags', 'array-contains-any', filters));
+            jobsQuery = await query(jobsRef, orderBy('startDate', sortType), where('tags', 'array-contains-any', filters));
         } else {
-            jobsQuery = await query(jobsRef, orderBy('startDate', 'desc'));
+            jobsQuery = await query(jobsRef, orderBy('startDate', sortType));
         }
         const jobsSnap = await getDocs(jobsQuery);
 
@@ -57,7 +63,7 @@ const Resume = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Resume</h1>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" onChange={(e) => {
+                    <input type="checkbox" ref={sortBox} onChange={(e) => {
                         setJobs((prevState) => {
                             let copy = [...prevState];
                             return copy.reverse();
@@ -74,7 +80,7 @@ const Resume = () => {
                 <div className='flex flex-row my-2 gap-2'>
                     <p className='text-lg mr-2'>Filters:</p>
                     {filters.map((filter, i) => {
-                        return <Tag text={filter} handleRemove={() => {removeFilter(filter)}} removable={true} key={i}/>
+                        return <Tag text={filter} handleRemove={() => {removeFilter(filter)}} removable={true} key={i} className="tag-invert"/>
                     })}
                 </div>
             )}

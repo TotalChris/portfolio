@@ -21,7 +21,7 @@ const JobEntry = ({jobData, handleFilterPush}) => {
             <h1 className='text-neutral-500 block md:hidden'>{location}</h1>
             <div className='flex flex-row gap-2 mt-4 overflow-x-scroll w-screen relative -left-8 px-8'>
                 {tags.map((tag, i) => {
-                    return <Tag text={tag} handleClick={handleFilterPush} key={i}/>
+                    return <Tag text={tag} handleClick={handleFilterPush} key={i} className='hover:tag-invert'/>
                 })}
             </div>
             <ul className='text-sm list-disc ml-6 mt-4' style={{fontFamily: 'Inter'}}>

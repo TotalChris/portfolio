@@ -13,7 +13,7 @@ const PostListing = ({post, postId, handleFilterPush}) => {
                 <Link to={'/posts/' + postId} className='w-auto'><p className='text-xl font-bold'>{post.title}</p></Link>
                 <div className='flex flex-row gap-2 justify-end lg:justify-start'>
                     {post.tags.map((tag, i) => {
-                        return <Tag text={tag} handleClick={handleFilterPush} key={i}/>
+                        return <Tag text={tag} handleClick={handleFilterPush} key={i} className='hover:tag-invert'/>
                     })}
                 </div>
                 <p className='text-md text-neutral-500'>{dateFormatter.format(post.timestamp.toDate())}</p>
