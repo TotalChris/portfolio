@@ -39,13 +39,14 @@ const PostForm = () => {
 
     const [formData, setFormData] = useState({
         title: '',
+        subtitle: '',
         tags: [],
         headerImg: undefined,
         content: '',
         markdownFile: undefined,
     })
 
-    const {title, headerImg} = formData;
+    const {title, subtitle, headerImg} = formData;
 
     const storage = getStorage();
 
@@ -100,6 +101,7 @@ const PostForm = () => {
                     <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-2xl py-3 h-auto w-full'/>
                     <p className='collapse-content break-words'>Your post will live at https://totalchris.com/posts/{title.trim().toLowerCase().replace(/ /g, "-")}</p>
                 </div>
+                <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-lg py-3 h-auto w-full mb-8'/>
                 <TagInput onChange={handleChange} id="tags"/>
                 <div className='flex flex-row items-center mt-8'>
                     <label htmlFor="headerImg" className='text-xl mr-8'>Image:</label>
