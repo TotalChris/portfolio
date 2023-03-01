@@ -53,7 +53,7 @@ const Contact = () => {
                     <textarea name="inquiry" id="inquiry" value={inquiry} onChange={handleChange} className="textarea w-full bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none h-64 md:h-32" placeholder="inquiry"></textarea>
                 </div>
                 <div className='flex flex-row gap-8 mt-8'>
-                    <button type='submit' className='ml-auto btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white'>Submit</button>
+                    <button type='submit' className='ml-auto btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white rounded-full'>Submit</button>
                 </div>
             </form>
         </div>

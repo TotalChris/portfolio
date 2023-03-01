@@ -44,7 +44,7 @@ const LogIn = () => {
                     <div className="form-control grow w-full lg:max-w-sm">
                         <input type="password" id="password" value={password} onChange={handleChange} placeholder="password" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none" />
                     </div>
-                    <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mr-auto">log in</button>
+                    <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mr-auto rounded-full">log in</button>
                 </div>
                 <div className='collapse-content text-red-700 my-4 px-0'>
                     there was an error with your information. try again.
