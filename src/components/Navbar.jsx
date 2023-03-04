@@ -94,7 +94,7 @@ const Navbar = () => {
 
                 </h1>
                 {((!fieldFocus && loggedIn) && (
-                    <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to='/construction'>
+                    <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to='/profile'>
                         <div className="w-8 h-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={Chris} alt="avatar"/>
                         </div>

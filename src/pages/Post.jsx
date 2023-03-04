@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
 import {Helmet, HelmetProvider} from "react-helmet-async";
+import Chris from "../assets/carousel/Chris-7.jpg";
 
 
 const Post = () => {
@@ -61,13 +62,20 @@ const Post = () => {
                     </Helmet>
                     <img src={post.header} className='w-full h-96 object-cover rounded-3xl text-left' alt='post'/>
                     <h1 className='text-6xl font-bold relative l-0 w-full'>{post.title}</h1>
-                    <blockquote className="text-lg border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400 w-full">{post.subtitle}</blockquote>
+                    <blockquote className="text-xl border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400 w-full">{post.subtitle}</blockquote>
+                    <div className='flex flex-row w-full items-center'>
+                        <Link className="avatar p-2 pr-5 hover:cursor-pointer" to='/posts'>
+                            <div className="w-8 h-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src={Chris} alt="avatar"/>
+                            </div>
+                        </Link>
+                        <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
+                    </div>
                     <div className='flex flex-row gap-2 overflow-x-scroll relative l-0 w-full'>
                         {post.tags && post.tags.map((tag, i) => {
                             return <div key={i} className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
                         })}
                     </div>
-                    <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
                     <hr className='border-black dark:border-white' style={{width: '100%'}}/>
                     <ReactMarkdown className='prose prose-lg dark:!prose-invert min-w-full mb-16'>{post.content}</ReactMarkdown>
                     </HelmetProvider>

@@ -14,6 +14,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Post from "./pages/Post";
 import Redirect from "./components/Redirect";
 import Posts from "./pages/Posts";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -38,6 +39,9 @@ function App() {
                 </Route>
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:postId" element={<Post />} />
+                <Route path="/profile" element={<PrivateRoute />}>
+                    <Route path="/profile" element={<Profile />} />
+                </Route>
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </Router>

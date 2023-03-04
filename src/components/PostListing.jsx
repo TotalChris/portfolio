@@ -10,8 +10,8 @@ const PostListing = ({post, postId, handleFilterPush}) => {
         <div className='w-full sm:w-96 flex flex-col'>
             <Link to={'/posts/' + postId} className='w-full'><img src={post.header} className='h-full sm:h-52 object-cover rounded-xl w-full' alt='post header'/></Link>
             <div className='flex flex-col lg:text-left lg:ml-0 gap-2 max-w-2/3 mt-2'>
-                <Link to={'/posts/' + postId} className='w-auto'><p className='text-xl font-bold'>{post.title}</p></Link>
-                <Link to={'/posts/' + postId} className='w-auto'><p className='text-md border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400'>{post.subtitle}</p></Link>
+                <Link to={'/posts/' + postId} className='w-auto'><p className='text-2xl font-bold mt-2'>{post.title}</p></Link>
+                <Link to={'/posts/' + postId} className='w-auto'><p className='text-sm italic border-l-2 pl-2 border-neutral-500 text-neutral-600 dark:text-neutral-400'>{post.subtitle}</p></Link>
                 <div className='flex flex-row gap-2 mt-2 justify-start'>
                     {post.tags.map((tag, i) => {
                         return <Tag text={tag} handleClick={handleFilterPush} key={i} className='hover:tag-invert'/>
