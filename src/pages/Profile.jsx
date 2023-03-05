@@ -54,7 +54,7 @@ const Profile = () => {
                 })
             )}
             {(auth.currentUser?.uid === params.userId  && (
-                <div className='flex flex-row gap-4 w-full absolute bottom-0 p-8 bg-base-200 dark:bg-black'>
+                <div className='flex flex-row gap-4 w-full fixed bottom-0 p-8 bg-base-200 dark:bg-black'>
                     <button type='button' onClick={() => {navigate('/new-post')}} className='btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white rounded-xl grow hover:cursor-pointer'>Create Post</button>
                     <button type='button' onClick={() => {navigate('/log-out')}} className='btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl grow hover:cursor-pointer'>Log Out</button>
                 </div>
