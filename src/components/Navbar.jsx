@@ -16,13 +16,14 @@ const Navbar = () => {
     const [showPath, setShowPath] = useState(true);
     const [fieldFocus, setFieldFocus] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
+    const auth = getAuth();
 
     useEffect(() => {
         setPath(location.pathname.split('/'));
     }, [location, loggedIn])
 
     useEffect(() => {
-        onAuthStateChanged(getAuth(), (user) => {
+        onAuthStateChanged(auth, (user) => {
             if(user){
                 setLoggedIn(true)
             } else {
@@ -94,7 +95,7 @@ const Navbar = () => {
 
                 </h1>
                 {((!fieldFocus && loggedIn) && (
-                    <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to='/profile'>
+                    <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to={`/profile/${auth.currentUser.uid}`}>
                         <div className="w-8 h-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={Chris} alt="avatar"/>
                         </div>

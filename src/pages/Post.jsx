@@ -64,7 +64,7 @@ const Post = () => {
                     <h1 className='text-6xl font-bold relative l-0 w-full'>{post.title}</h1>
                     <blockquote className="text-xl border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400 w-full">{post.subtitle}</blockquote>
                     <div className='flex flex-row w-full items-center'>
-                        <Link className="avatar p-2 pr-5 hover:cursor-pointer" to='/posts'>
+                        <Link className="avatar p-2 pr-5 hover:cursor-pointer" to={`/profile/${post.userRef}`}>
                             <div className="w-8 h-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={Chris} alt="avatar"/>
                             </div>

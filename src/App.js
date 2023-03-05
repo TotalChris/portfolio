@@ -39,9 +39,7 @@ function App() {
                 </Route>
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:postId" element={<Post />} />
-                <Route path="/profile" element={<PrivateRoute />}>
-                    <Route path="/profile" element={<Profile />} />
-                </Route>
+                <Route path="/profile/:userId" element={<Profile />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </Router>
