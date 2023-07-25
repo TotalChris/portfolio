@@ -28,9 +28,9 @@ const Home = () => {
                     <h1 className="text-5xl font-bold" style={{fontFamily: 'Roboto Mono',}}>Hi, I'm Chris.</h1>
                     <p className='py-4' style={{maxWidth: '440px'}}>I'm a 23-year-old independent web developer based in the United States. I have big dreams about what the web and its portability and capability offers us. I have extensive experience in vanilla web design, and I am becoming familiar with popular frameworks like React.</p>
                     <div className='flex sm:flex-row flex-col gap-2' style={{fontFamily: 'Roboto Mono',}}>
-                        <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white rounded-full" onClick={() => {navigate('/resume')}}>My Resume</button>
-                        <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-full" onClick={() => {window.location.href = 'https://github.com/sponsors/TotalChris'}}>Sponsor</button>
-                        <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-full" onClick={() => {navigate('/contact')}}>Contact</button>
+                        <button className="btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl" onClick={() => {navigate('/resume')}}>My Resume</button>
+                        <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-2xl" onClick={() => {window.location.href = 'https://github.com/sponsors/TotalChris'}}>Sponsor</button>
+                        <button className="btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-2xl" onClick={() => {navigate('/contact')}}>Contact</button>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import Post from "./pages/Post";
 import Redirect from "./components/Redirect";
 import Posts from "./pages/Posts";
 import Profile from "./pages/Profile";
+import TitleNotes from "./pages/TitleNotes";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/under-construction' element={<Construction />} />
                 <Route path='/log-in' element={<LogIn />} />
                 <Route path='/not-found' element={<NotFound />} />
+                <Route path='/title-notes' element={<TitleNotes />} />
                 <Route path="/log-out" element={<PrivateRoute />}>
                     <Route path='/log-out' element={<LogOut />} />
                 </Route>
