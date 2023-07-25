@@ -19,8 +19,10 @@ const TitleNotes = () => {
                                 </h1>
                                 <h1 className="mt-5 text-5xl font-bold text-center">Title Notes</h1>
                                 <p className="my-5 text-center">The notes app designed to live in your browser.</p>
-                                <a href="#colors" className="btn btn-primary hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black bg-transparent border-black text-black dark:text-white dark:border-white rounded-2xl mr-2">Learn More&nbsp;<BsArrowDownCircle /></a>
-                                <a href='https://titlenotes.netlify.app/' className="btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black rounded-2xl ml-2">Check it out&nbsp;<BsArrowUpRightCircle /></a>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <a href="#colors" className="btn btn-primary hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black bg-transparent border-black text-black dark:text-white dark:border-white rounded-2xl">Learn More&nbsp;<BsArrowDownCircle /></a>
+                                    <a href='https://titlenotes.netlify.app/' className="btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black rounded-2xl">Check it out&nbsp;<BsArrowUpRightCircle /></a>
+                                </div>
                             </div>
                         </div>
                     </div>
