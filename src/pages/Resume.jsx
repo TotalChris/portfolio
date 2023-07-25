@@ -67,7 +67,8 @@ const Resume = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
             </div>
-            <div className='flex flex-col lg:flex-row pb-24 gap-4'>
+            <hr className='border-black dark:border-white'/>
+            <div className='flex flex-col lg:flex-row pb-12 pt-4 gap-4'>
                 <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full">
                             <img src={jt} className='h-16 w-16 rounded-2xl' alt="JT Hair icon"></img>
@@ -90,7 +91,7 @@ const Resume = () => {
                                     <p>Simple and stylish note-taking PWA</p>
                                     <p className='text-neutral-500'>October 2022</p>
                                 </div>
-                                <button className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl" onClick={() => {navigate('/title-notes')}}>Learn More</button>
+                                <button className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
                             </div>
                     </div>
                 </div>

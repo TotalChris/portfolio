@@ -30,8 +30,8 @@ const TitleNotes = () => {
                 </div>
             </div>
 
-            <div className="p-10 bg-neutral-100 dark:bg-black text-black dark:text-white" id="colors">
-                <div className="p-5 hero bg-neutral-200 dark:bg-neutral-800 rounded-3xl">
+            <div className="p-10 bg-neutral-100 dark:bg-black text-black dark:text-white" >
+                <div className="p-5 hero rounded-3xl border-black dark:border-white" style={{border: "1px solid"}}>
                     <div className="hero-content flex-col md:flex-row-reverse">
                         <img src={tnFeature1} alt="Custmizing a List in Title Notes" className="max-w-sm rounded-lg shadow-2xl w-1/2 lg:w-full" />
                         <div className="mt-10 md:mr-10 max-w-md">
@@ -43,8 +43,8 @@ const TitleNotes = () => {
                 </div>
             </div>
 
-            <div className="pb-10 px-10 bg-neutral-100 dark:bg-black text-black dark:text-white" id="colors">
-                <div className="p-5 hero bg-neutral-200 dark:bg-neutral-800 rounded-3xl">
+            <div className="pb-10 px-10 bg-neutral-100 dark:bg-black text-black dark:text-white" >
+                <div className="p-5 hero rounded-3xl border-black dark:border-white" style={{border: "1px solid"}}>
                     <div className="hero-content flex-col md:flex-row">
                         <img src={tnFeature2} alt="A Shopping List in Title Notes" className="max-w-sm rounded-lg shadow-2xl w-1/2 lg:w-full" />
                         <div className="mt-10 md:ml-10 max-w-md">
