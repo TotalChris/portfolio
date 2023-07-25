@@ -78,7 +78,7 @@ const Resume = () => {
                                     <p>Site for JT Hair of Brighton, MI</p>
                                     <p className='text-neutral-500'>March 2023</p>
                                 </div>
-                                <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl">Visit Site</a>
+                                <a href='https://preview.jthaircare.com/' className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl">Visit Site</a>
                             </div>
                     </div>
                 </div>
