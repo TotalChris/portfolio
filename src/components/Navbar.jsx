@@ -106,16 +106,16 @@ const Navbar = () => {
                 <div className='font-bold text-sm'>suggestions:</div>
                 {(path[1] === '' ? (
                     <>
-                        <Tag linking text={'resume'} handleClick={() => {navigate('/resume')}} className='hover:tag-invert'/>
-                        <Tag linking text={'contact'} handleClick={() => {navigate('/contact')}} className='hover:tag-invert'/>
-                        <Tag linking text={'posts'} handleClick={() => {navigate('/posts')}} className='hover:tag-invert'/>
+                        <Tag linking text={'resume'} handleClick={() => {navigate('/resume');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'contact'} handleClick={() => {navigate('/contact');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'posts'} handleClick={() => {navigate('/posts');setFieldFocus(false);}} className='hover:tag-invert'/>
                         {loggedIn ? (
                             <>
-                                <Tag linking text={'new-post'} handleClick={() => navigate('/new-post')} className='hover:tag-invert'></Tag>
-                                <Tag linking text={'log-out'} handleClick={() => navigate('/log-out')} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'new-post'} handleClick={() => {navigate('/new-post');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'log-out'} handleClick={() => {navigate('/log-out');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                             </>
                         ) : (
-                            <Tag linking text={'log-in'} handleClick={() => navigate('/log-in')} className='hover:tag-invert'></Tag>
+                            <Tag linking text={'log-in'} handleClick={() => {navigate('/log-in');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                         )}
                     </>
                 ) : (
