@@ -5,7 +5,7 @@ import {db} from "../firebase.config";
 import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
 import {Helmet, HelmetProvider} from "react-helmet-async";
-import Chris from "../assets/carousel/Chris-7.jpg";
+import Chris from "../assets/carousel/Chris-7.webp";
 
 
 const Post = () => {

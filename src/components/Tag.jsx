@@ -1,7 +1,7 @@
 import React from 'react';
-import {BsXCircle} from 'react-icons/bs'
+import {BsXCircle, BsArrowUpRightCircle} from 'react-icons/bs'
 
-const Tag = ({text, removable, handleClick, handleRemove, highlight, className}) => {
+const Tag = ({text, removable, handleClick, handleRemove, highlight, className, linking}) => {
     return (
         <div
             className={"badge badge-outline min-w-max select-none p-3 h-6 rounded-full border-black dark:border-white hover:cursor-pointer text-sm " + (
@@ -14,6 +14,7 @@ const Tag = ({text, removable, handleClick, handleRemove, highlight, className})
         >
             {(removable && <BsXCircle onClick={() => {handleRemove && handleRemove(text)}} className='mr-1' style={{marginLeft: '-0.35rem'}}/>)}
             {text}
+            {(linking && <BsArrowUpRightCircle className='ml-1' style={{marginRight: '-0.35rem'}}/>)}
         </div>
     );
 };

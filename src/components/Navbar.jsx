@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {BsArrowRightCircle} from 'react-icons/bs'
 import { IconContext } from "react-icons";
-import Chris from '../assets/carousel/Chris-7.jpg'
+import Chris from '../assets/carousel/Chris-7.webp'
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import '../styles/Navbar.css'
 import Tag from "./Tag";
@@ -67,7 +67,7 @@ const Navbar = () => {
     }
 
     return (
-        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse group ' + ( !fieldFocus ? 'collapse-close bg-base-200 dark:bg-black' : 'collapse-open bg-base-300 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
+        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-base-200 dark:bg-black' : 'collapse-open bg-base-300 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
             <div className='navbar collapse-title pr-1.5'>
                 <h1 className='text-lg ml-4 w-full overflow-x-scroll overflow-y-hidden relative' style={{fontFamily: 'Roboto Mono',}}>
                     {( showPath ? (
@@ -106,16 +106,16 @@ const Navbar = () => {
                 <div className='font-bold text-sm'>suggestions:</div>
                 {(path[1] === '' ? (
                     <>
-                        <Tag text={'resume'} handleClick={() => {setQuery('resume')}} className='hover:tag-invert'/>
-                        <Tag text={'contact'} handleClick={() => {setQuery('contact')}} className='hover:tag-invert'/>
-                        <Tag text={'posts'} handleClick={() => {setQuery('posts')}} className='hover:tag-invert'/>
+                        <Tag linking text={'resume'} handleClick={() => {navigate('/resume');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'contact'} handleClick={() => {navigate('/contact');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'posts'} handleClick={() => {navigate('/posts');setFieldFocus(false);}} className='hover:tag-invert'/>
                         {loggedIn ? (
                             <>
-                                <Tag text={'new-post'} handleClick={() => setQuery('new-post')} className='hover:tag-invert'></Tag>
-                                <Tag text={'log-out'} handleClick={() => setQuery('log-out')} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'new-post'} handleClick={() => {navigate('/new-post');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'log-out'} handleClick={() => {navigate('/log-out');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                             </>
                         ) : (
-                            <Tag text={'log-in'} handleClick={() => setQuery('log-in')} className='hover:tag-invert'></Tag>
+                            <Tag linking text={'log-in'} handleClick={() => {navigate('/log-in');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                         )}
                     </>
                 ) : (
