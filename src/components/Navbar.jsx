@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {BsArrowRightCircle} from 'react-icons/bs'
 import { IconContext } from "react-icons";
-import Chris from '../assets/carousel/Chris-7.jpg'
+import Chris from '../assets/carousel/Chris-7.webp'
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import '../styles/Navbar.css'
 import Tag from "./Tag";
