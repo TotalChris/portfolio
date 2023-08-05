@@ -85,9 +85,12 @@ const Posts = () => {
                         <Spinner />
                     ) :
                     <div className='flex flex-col lg:flex-row lg:flex-wrap gap-8 mt-8'>
-                        {posts.map((post, i) => {
-                            return <PostListing post={post.data} postId={post.id} handleFilterPush={addFilter} key={i}/>
-                        })}
+                        {posts.length > 0 ?
+                            posts.map((post, i) => {
+                                return <PostListing post={post.data} postId={post.id} handleFilterPush={addFilter} key={i}/>
+                            }) :
+                            <h1>No Posts Yet!</h1>
+                        }
                     </div>
             )}
         </div>
