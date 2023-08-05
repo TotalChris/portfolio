@@ -73,7 +73,7 @@ const Navbar = () => {
                     {( showPath ? (
                         path.map((itm, idx) => {
                             return (!(itm === '' && idx + 1 === path.length) ?
-                                <p key={idx} className='min-w-max'><Link className={(idx === 0 && 'font-bold') + ' hover:underline'} to={path.slice(0, idx+1).join('/')}>{idx === 0 ? 'chris yates' : itm}</Link>&nbsp;/&nbsp;</p>
+                                <p key={idx} className='min-w-max'><Link className={(idx === 0 && 'font-bold') + ' hover:underline'} to={path.slice(0, idx+1).join('/')}>{idx === 0 ? <>chris yates <Tag removable handleRemove={() => {window.location.href = "https://totalchris.com/"}} text={'preview'} className='hover:tag-invert'/></> : itm}</Link>&nbsp;/&nbsp;</p>
                                 : '')
                         })
                     ) : (
