@@ -97,11 +97,11 @@ const PostForm = () => {
         <div className='mx-6 pt-24'  style={{fontFamily: 'Roboto Mono'}}>
             <h1 className='text-6xl'>Write a Post</h1>
             <form className='py-12 flex flex-col' onSubmit={handleSubmit} ref={formRef}>
-                <div className={'collapse group ' + (title.length > 0 ? 'collapse-open' : 'mb-8')}>
-                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-2xl py-3 h-auto w-full'/>
-                    <p className='collapse-content break-words'>Your post will live at https://totalchris.com/posts/{title.trim().toLowerCase().replace(/ /g, "-")}</p>
+                <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>
+                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
+                    <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-lg py-3 h-auto w-full' style={{borderTop: "none", borderTopRightRadius: 0, borderTopLeftRadius: 0}}/>
+                    <p className='collapse-content break-words mt-2' style={{gridRowStart: 3}}>Your post will live at https://chrisyates.dev/posts/{title.trim().toLowerCase().replace(/ /g, "-")}</p>
                 </div>
-                <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-lg py-3 h-auto w-full mb-8'/>
                 <TagInput onChange={handleChange} id="tags"/>
                 <div className='flex flex-row items-center mt-8'>
                     <label htmlFor="headerImg" className='text-xl mr-8'>Image:</label>
