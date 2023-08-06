@@ -56,7 +56,7 @@ const TagInput = ({onChange, id}) => {
     }
 
     return (
-        <div className='flex flex-row items-center gap-2 border-black dark:border-white py-2 cursor-text pl-4' onClick={handleFocus} style={{border: '1px solid'}}>
+        <div className='flex flex-row items-center gap-2 border-black dark:border-white py-2 cursor-text pl-4 rounded-lg' onClick={handleFocus} style={{border: '1px solid'}}>
             {
                 (tagList.length === 0
                         ?
