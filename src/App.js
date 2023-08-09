@@ -25,6 +25,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path="/title/" element={<Redirect to='https://titlenotes.netlify.app/' />} />
                 <Route path="/title/index.html" element={<Redirect to='https://titlenotes.netlify.app/' />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/contact/thank-you' element={<ThankYou />} />
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/new-post" element={<PrivateRoute />}>
                     <Route path='/new-post' element={<PostForm />} />
                 </Route>
+                <Route path="/preview/" element={<Redirect to='https://preview.chrisyates.dev' />} />
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:postId" element={<Post />} />
                 <Route path="/profile/:userId" element={<Profile />} />
