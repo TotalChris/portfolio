@@ -1,3 +1,3 @@
 export async function onRequestPost(ctx){
-    return new Response({status: 404, body: 'Testing Connection To Workers'})
+    return new Response('Testing Connection To Workers', {status: 404})
 }
