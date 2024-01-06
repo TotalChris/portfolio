@@ -20,7 +20,7 @@ import TitleNotes from "./pages/TitleNotes";
 function App() {
 
   return (
-    <div className='app bg-base-200 dark:bg-black dark:text-primary-content min-h-screen'>
+    <div className='app bg-white-200 dark:bg-black text-black dark:text-white min-h-screen'>
         <Router>
             <Navbar />
             <Routes>

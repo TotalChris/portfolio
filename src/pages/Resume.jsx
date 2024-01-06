@@ -7,7 +7,7 @@ import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import Tag from "../components/Tag";
 import tn from "../assets/projectAssets/tn.png"
 import jt from "../assets/projectAssets/jt.png"
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
 const Resume = () => {
 
@@ -63,14 +63,14 @@ const Resume = () => {
     }, [fetchJobs])
 
     return (
-        <div className='pt-24 px-8'>
+        <div className='pt-24 px-8 mx-auto' style={{maxWidth: '1080px'}}>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
             </div>
             <hr className='border-black dark:border-white'/>
-            <div className='flex flex-col lg:flex-row pb-12 pt-4 gap-4'>
+            <div className='flex flex-col lg:flex-row pb-4 pt-4 gap-4'>
                 <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer" style={{border: '1px solid'}}>
-                    <div className="hero-content flex-col items-start w-full">
+                    <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
                             <img src={jt} className='h-16 w-16 rounded-2xl' alt="JT Hair icon"></img>
                             <h1 className="text-5xl font-bold" style={{fontFamily: "JT", fontWeight: 'lighter'}}>JT Hair</h1>
                             <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
@@ -83,7 +83,7 @@ const Resume = () => {
                     </div>
                 </div>
                 <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer" style={{border: '1px solid'}}>
-                    <div className="hero-content flex-col items-start w-full">
+                    <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
                             <img src={tn} className='h-16 w-16 rounded-2xl' alt="Title Notes icon"></img>
                             <h1 className="text-5xl font-bold" style={{fontFamily: "TN"}}>Title Notes</h1>
                             <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
@@ -96,8 +96,19 @@ const Resume = () => {
                     </div>
                 </div>
             </div>
+            <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer mb-12" style={{border: '1px solid'}}>
+                    <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
+                            <div className='flex flex-col sm:flex-row w-full justify-between sm:items- items-center' style={{fontFamily: 'Roboto Mono'}}>
+                                <h1 className="text-2xl mb-2 sm:mb-0" style={{fontFamily: 'Roboto Mono'}}>Want To Work Together?</h1>
+                                <Link to='/contact' className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl w-full sm:w-auto">Let's Make Cool Stuff</Link>
+                            </div>
+                    </div>
+                </div>
             <div className='flex flex-row'>
-                <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Resume</h1>
+                <div className="flex flex-col pb-2" style={{fontFamily: 'Roboto Mono'}}>
+                    <h1 className='text-5xl pb-2'>My Resume</h1>
+                    <p className='text-lg italic'>Click a category tag to filter</p>
+                </div>
                 <label className="swap swap-rotate ml-auto">
                     <input type="checkbox" ref={sortBox} onChange={(e) => {
                         setJobs((prevState) => {

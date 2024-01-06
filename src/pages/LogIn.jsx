@@ -34,17 +34,19 @@ const LogIn = () => {
     }
 
     return (
-        <div className='pt-24 mx-6 min-h-screen' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 px-8 min-h-screen mx-auto' style={{fontFamily: 'Roboto Mono', maxWidth: '1080px'}}>
             <h1 className='text-6xl'>Admin Login</h1>
-            <form className={ 'collapse ' + (error ? 'collapse-open' : '') } onSubmit={handleSubmit}>
-                <div className='flex flex-wrap justify-start mt-10' style={{gap: '8px'}} >
-                    <div className="form-control grow w-full lg:max-w-sm ">
-                        <input type="email" id="email" value={email} onChange={handleChange} placeholder="user id" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none" />
+            <form className={ 'w-full collapse ' + (error ? 'collapse-open' : '') } onSubmit={handleSubmit}>
+                <div className='flex flex-wrap mt-10' style={{gap: '8px'}} >
+                    <div className="flex sm:flex-row flex-col gap-4 items-stretch w-full">
+                        <div className="form-control grow">
+                            <input type="email" id="email" value={email} onChange={handleChange} placeholder="User ID" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white" />
+                        </div>
+                        <div className="form-control grow">
+                            <input type="password" id="password" value={password} onChange={handleChange} placeholder="Password" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white" />
+                        </div>
+                        <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mr-auto rounded-xl border-none">Log In</button>
                     </div>
-                    <div className="form-control grow w-full lg:max-w-sm">
-                        <input type="password" id="password" value={password} onChange={handleChange} placeholder="password" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none" />
-                    </div>
-                    <button className="btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mr-auto rounded-full">log in</button>
                 </div>
                 <div className='collapse-content text-red-700 my-4 px-0'>
                     there was an error with your information. try again.

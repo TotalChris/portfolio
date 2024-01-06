@@ -13,7 +13,6 @@ const Posts = () => {
     const [filters, setFilters] = useState([]);
     const sortBox = useRef();
 
-
     const addFilter = (text) => {
         if(!filters.includes(text)){
             setFilters((prevState) => {
@@ -57,8 +56,14 @@ const Posts = () => {
         })
     }
 
+    const removePost = (postId) => {
+        setPosts((prevState) => {
+            return prevState.filter((post) => post.id !== postId);
+        })
+    }
+
     return (
-        <div className='pt-24 px-8'>
+        <div className='pt-24 px-8 mx-auto' style={{maxWidth: '1080px'}}>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
@@ -87,7 +92,7 @@ const Posts = () => {
                     <div className='flex flex-col lg:flex-row lg:flex-wrap gap-8 mt-8'>
                         {posts.length > 0 ?
                             posts.map((post, i) => {
-                                return <PostListing post={post.data} postId={post.id} handleFilterPush={addFilter} key={i}/>
+                                return <PostListing post={post.data} postId={post.id} handleFilterPush={addFilter} handleRemove={removePost} key={i}/>
                             }) :
                             <h1>No Posts Yet!</h1>
                         }

@@ -10,9 +10,7 @@ import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 
-
 const PostForm = () => {
-
     const navigate = useNavigate();
     const auth = getAuth();
     const isMounted = useRef(true);
@@ -44,6 +42,7 @@ const PostForm = () => {
         headerImg: undefined,
         content: '',
         markdownFile: undefined,
+        isPrivate: false,
     })
 
     const {title, subtitle, headerImg} = formData;
@@ -98,18 +97,22 @@ const PostForm = () => {
             <h1 className='text-6xl'>Write a Post</h1>
             <form className='py-12 flex flex-col' onSubmit={handleSubmit} ref={formRef}>
                 <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>
-                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
-                    <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none text-lg py-3 h-auto w-full' style={{borderTop: "none", borderTopRightRadius: 0, borderTopLeftRadius: 0}}/>
+                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
+                    <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-lg py-3 h-auto w-full' style={{borderTop: "none", borderTopRightRadius: 0, borderTopLeftRadius: 0}}/>
                     <p className='collapse-content break-words mt-2' style={{gridRowStart: 3}}>Your post will live at https://chrisyates.dev/posts/{title.trim().toLowerCase().replace(/ /g, "-")}</p>
                 </div>
                 <TagInput onChange={handleChange} id="tags"/>
-                <div className='flex flex-row items-center mt-8'>
-                    <label htmlFor="headerImg" className='text-xl mr-8'>Image:</label>
+                <div className='flex flex-row items-center mt-8 gap-4'>
+                    <label htmlFor="headerImg" className='text-xl'>Image:</label>
                     <input type="file" name="headerImg" onChange={handleChange} id='headerImg' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none" />
                 </div>
-                <div className="tabs w-full mt-8 mb-2">
-                    <button type="button" className={"tab tab-bordered w-1/2 dark:text-white border-black h-12 " + (useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(true)}>Manual Input</button>
-                    <button type="button" className={"tab tab-bordered w-1/2 dark:text-white border-black h-12 " + (!useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(false)}>File Upload</button>
+                <div className='flex flex-row items-start mt-8 gap-4'>
+                    <input type="checkbox" className='checkbox checkbox-lg border-white [--chkbg:white]' name='isPrivate' id='isPrivate' onChange={handleChange}/>
+                    <label htmlFor="isPrivate" className='text-xl'>Make Private</label>
+                </div>
+                <div className="tabs tabs-bordered w-full mt-8 mb-2">
+                    <button type="button" className={"tab dark:text-white border-black h-12 " + (useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(true)}>Manual Input</button>
+                    <button type="button" className={"tab dark:text-white border-black h-12 " + (!useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(false)}>File Upload</button>
                 </div>
                 {(useEditor ? (
                     <MdEditor style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />

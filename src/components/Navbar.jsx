@@ -73,14 +73,14 @@ const Navbar = () => {
                     {( showPath ? (
                         path.map((itm, idx) => {
                             return (!(itm === '' && idx + 1 === path.length) ?
-                                <p key={idx} className='min-w-max'><Link className={(idx === 0 && 'font-bold') + ' hover:underline'} to={path.slice(0, idx+1).join('/')}>{idx === 0 ? 'chris yates' : itm}</Link>&nbsp;/&nbsp;</p>
+                                <p key={idx} className='min-w-max'><Link className={(idx === 0 && 'font-bold') + ' hover:underline'} to={path.slice(0, idx+1).join('/')}>{idx === 0 ? 'Chris Yates' : itm.charAt(0).toUpperCase() + itm.slice(1)}</Link>&nbsp;/&nbsp;</p>
                                 : '')
                         })
                     ) : (
                         <p><Link className={'font-bold hover:underline'} onClick={() => {setShowPath(true)}}>…</Link>&nbsp;/&nbsp;</p>
                     ))}
                     <div onMouseEnter={handleFocus} className='flex justify-center grow mr-4'>
-                        <input onClick={(e) => {if(e.target.value !== ''){setShowPath(false)}}} id='navbarInput' type='text' placeholder={( !fieldFocus ? '...' : 'type anything...' )} className='text-lg input input-ghost w-full px-0 bg-transparent focus:outline-0 dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => {setQuery(e.target.value); setShowPath(e.target.value === '')}} onKeyDown={handleKeyPress}/>
+                        <input onClick={(e) => {if(e.target.value !== ''){setShowPath(false)}}} id='navbarInput' type='text' placeholder={( !fieldFocus ? '...' : 'type anything...' )} className='text-lg input input-ghost w-full px-0 bg-transparent focus:outline-0 border-none dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => {setQuery(e.target.value); setShowPath(e.target.value === '')}} onKeyDown={handleKeyPress}/>
                         {( fieldFocus && (
                             <IconContext.Provider
                                 value={{ size: '30px', style: { strokeWidth: (query === '' ? '0' : '.5'), overflow: 'visible', margin: '4px', }}}
@@ -102,20 +102,19 @@ const Navbar = () => {
                     </Link>
                 ))}
             </div>
-            <div className="collapse-content bg-transparent text-black dark:text-primary-content ml-4 flex items-center gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
-                <div className='font-bold text-sm'>suggestions:</div>
+            <div className="collapse-content bg-transparent text-black dark:text-white ml-4 flex items-center gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
                 {(path[1] === '' ? (
                     <>
-                        <Tag linking text={'resume'} handleClick={() => {navigate('/resume');setFieldFocus(false);}} className='hover:tag-invert'/>
-                        <Tag linking text={'contact'} handleClick={() => {navigate('/contact');setFieldFocus(false);}} className='hover:tag-invert'/>
-                        <Tag linking text={'posts'} handleClick={() => {navigate('/posts');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'Resume'} handleClick={() => {navigate('/resume');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'Contact'} handleClick={() => {navigate('/contact');setFieldFocus(false);}} className='hover:tag-invert'/>
+                        <Tag linking text={'Posts'} handleClick={() => {navigate('/posts');setFieldFocus(false);}} className='hover:tag-invert'/>
                         {loggedIn ? (
                             <>
-                                <Tag linking text={'new-post'} handleClick={() => {navigate('/new-post');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
-                                <Tag linking text={'log-out'} handleClick={() => {navigate('/log-out');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'New Post'} handleClick={() => {navigate('/new-post');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
+                                <Tag linking text={'Log Out'} handleClick={() => {navigate('/log-out');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                             </>
                         ) : (
-                            <Tag linking text={'log-in'} handleClick={() => {navigate('/log-in');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
+                            <Tag linking text={'Log In'} handleClick={() => {navigate('/log-in');setFieldFocus(false);}} className='hover:tag-invert'></Tag>
                         )}
                     </>
                 ) : (
