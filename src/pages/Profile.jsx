@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import Chris from "../assets/carousel/Chris-7.webp";
+import Chris from "../assets/carousel/Chris-07.webp";
 import {useNavigate, useParams} from "react-router-dom";
 import {db} from '../firebase.config'
 import {getAuth} from "firebase/auth";
