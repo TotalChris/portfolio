@@ -14,7 +14,7 @@ const SlowPhotoCarousel = ({images, style, className}) => {
         flexWrap: 'nowrap',
         gap: '16px',
         minHeight: '200px',
-        marginBlock: '16px',
+        marginBlock: '0px',
         justifyContent: 'center',
         position: 'relative',
         animation: 'carousel 60s linear 0s infinite',

@@ -69,7 +69,7 @@ const Navbar = () => {
     return (
         <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-base-200 dark:bg-black' : 'collapse-open bg-base-300 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
             <div className='navbar collapse-title pr-1.5'>
-                <h1 className='text-lg ml-4 w-full overflow-x-scroll overflow-y-hidden relative' style={{fontFamily: 'Roboto Mono',}}>
+                <h1 className='text-lg w-full overflow-x-scroll overflow-y-hidden relative' style={{fontFamily: 'Roboto Mono',}}>
                     {( showPath ? (
                         path.map((itm, idx) => {
                             return (!(itm === '' && idx + 1 === path.length) ?
@@ -79,7 +79,7 @@ const Navbar = () => {
                     ) : (
                         <p><Link className={'font-bold hover:underline'} onClick={() => {setShowPath(true)}}>…</Link>&nbsp;/&nbsp;</p>
                     ))}
-                    <div onMouseEnter={handleFocus} className='flex justify-center grow mr-4'>
+                    <div onMouseEnter={handleFocus} className='flex justify-center grow'>
                         <input onClick={(e) => {if(e.target.value !== ''){setShowPath(false)}}} id='navbarInput' type='text' placeholder={( !fieldFocus ? '...' : 'type anything...' )} className='text-lg input input-ghost w-full px-0 bg-transparent focus:outline-0 border-none dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => {setQuery(e.target.value); setShowPath(e.target.value === '')}} onKeyDown={handleKeyPress}/>
                         {( fieldFocus && (
                             <IconContext.Provider
@@ -102,7 +102,7 @@ const Navbar = () => {
                     </Link>
                 ))}
             </div>
-            <div className="collapse-content bg-transparent text-black dark:text-white ml-4 flex items-center gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
+            <div className="collapse-content bg-transparent text-black dark:text-white flex items-center gap-3 overflow-x-scroll" style={{fontFamily: 'Roboto Mono'}}>
                 {(path[1] === '' ? (
                     <>
                         <Tag linking text={'Resume'} handleClick={() => {navigate('/resume');setFieldFocus(false);}} className='hover:tag-invert'/>

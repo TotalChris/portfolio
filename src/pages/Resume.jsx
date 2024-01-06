@@ -63,7 +63,7 @@ const Resume = () => {
     }, [fetchJobs])
 
     return (
-        <div className='pt-24 px-8 mx-auto' style={{maxWidth: '1080px'}}>
+        <div className='pt-24 px-4 mx-auto' style={{maxWidth: '1080px'}}>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
             </div>
@@ -71,36 +71,40 @@ const Resume = () => {
             <div className='flex flex-col lg:flex-row pb-4 pt-4 gap-4'>
                 <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
+                        <div className="flex gap-4 sm:flex-col flex-row justify-between items-center sm:items-start w-full">
                             <img src={jt} className='h-16 w-16 rounded-2xl' alt="JT Hair icon"></img>
                             <h1 className="text-5xl font-bold" style={{fontFamily: "JT", fontWeight: 'lighter'}}>JT Hair</h1>
+                        </div>
                             <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
                                 <div className="flex flex-col">
                                     <p>Site for JT Hair of Brighton, MI</p>
                                     <p className='text-neutral-500'>March 2023</p>
                                 </div>
-                                <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl">Visit Site</a>
+                                <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn-wire">Visit Site</a>
                             </div>
                     </div>
                 </div>
                 <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
+                        <div className="flex gap-4 sm:flex-col flex-row justify-between items-center sm:items-start w-full">
                             <img src={tn} className='h-16 w-16 rounded-2xl' alt="Title Notes icon"></img>
-                            <h1 className="text-5xl font-bold" style={{fontFamily: "TN"}}>Title Notes</h1>
+                            <h1 className="text-4xl" style={{fontFamily: "TN"}}>Title Notes</h1>
+                        </div>
                             <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
                                 <div className="flex flex-col">
                                     <p>Simple and stylish note-taking PWA</p>
                                     <p className='text-neutral-500'>October 2022</p>
                                 </div>
-                                <button className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
+                                <button className="mt-2 sm:mt-0 btn-wire" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
                             </div>
                     </div>
                 </div>
             </div>
             <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer mb-12" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
-                            <div className='flex flex-col sm:flex-row w-full justify-between sm:items- items-center' style={{fontFamily: 'Roboto Mono'}}>
+                            <div className='flex flex-col sm:flex-row w-full justify-between items-center' style={{fontFamily: 'Roboto Mono'}}>
                                 <h1 className="text-2xl mb-2 sm:mb-0" style={{fontFamily: 'Roboto Mono'}}>Want To Work Together?</h1>
-                                <Link to='/contact' className="mt-2 sm:mt-0 btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl w-full sm:w-auto">Let's Make Cool Stuff</Link>
+                                <Link to='/contact' className="mt-2 sm:mt-0 btn-wire w-full sm:w-auto">Let's Make Cool Stuff</Link>
                             </div>
                     </div>
                 </div>
