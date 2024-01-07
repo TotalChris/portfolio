@@ -76,7 +76,7 @@ const Profile = () => {
             <div className='flex flex-row w-full mx-8'>
                 <h1 className='text-4xl' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" ref={sortBox} onChange={(e) => {
+                    <input type="checkbox" ref={sortBox} onChange={() => {
                         setUserPosts((prevState) => {
                             let copy = [...prevState];
                             return copy.reverse();

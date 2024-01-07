@@ -32,7 +32,7 @@ const TagInput = ({onChange, id}) => {
         setTagList([...listCopy]);
     }
 
-    const handleTagClick = (e) => {
+    const handleTagClick = () => {
 
     }
 
@@ -51,7 +51,7 @@ const TagInput = ({onChange, id}) => {
         }
     }
 
-    function handleFocus(e) {
+    function handleFocus() {
         inputField.current.focus();
     }
 
@@ -68,7 +68,7 @@ const TagInput = ({onChange, id}) => {
                 )
 
             }
-            <input type='text' ref={inputField} value={currentTag} className='input pl-0 h-8 input-bordered bg-transparent border-transparent text-black dark:text-white outline-none focus:outline-none focus:border-none' onChange={handleChange} onKeyDown={handleKey}/>
+            <input type='text' ref={inputField} value={currentTag} className='input pl-0 h-8 bg-transparent border-transparent text-black dark:text-white outline-none focus:outline-none focus:border-none' onChange={handleChange} onKeyDown={handleKey}/>
         </div>
     );
 };

@@ -45,9 +45,9 @@ const Post = () => {
                     <Helmet>
                         <title>{post.title} - Chris Yates</title>
 
-                        <meta itemprop="name" content={post.title} />
-                        <meta itemprop="description" content={post.subtitle} />
-                        <meta itemprop="image" content={post.header} />
+                        <meta itemProp="name" content={post.title} />
+                        <meta itemProp="description" content={post.subtitle} />
+                        <meta itemProp="image" content={post.header} />
 
                         <meta property="og:url" content={'https://totalchris.com/posts/' + params.postId} />
                         <meta property="og:type" content="website" />

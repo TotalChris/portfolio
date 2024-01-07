@@ -77,7 +77,7 @@ const Navbar = () => {
                                 : '')
                         })
                     ) : (
-                        <p><Link className={'font-bold hover:underline'} onClick={() => {setShowPath(true)}}>…</Link>&nbsp;/&nbsp;</p>
+                        <p><p className={'font-bold hover:underline'} onClick={() => {setShowPath(true)}}>…</p>&nbsp;/&nbsp;</p>
                     ))}
                     <div onMouseEnter={handleFocus} className='flex justify-center grow'>
                         <input onClick={(e) => {if(e.target.value !== ''){setShowPath(false)}}} id='navbarInput' type='text' placeholder={( !fieldFocus ? '...' : 'type anything...' )} className='text-lg input input-ghost w-full px-0 bg-transparent focus:outline-0 border-none dark:text-white dark:focus:text-white grow' value={query} onChange={(e) => {setQuery(e.target.value); setShowPath(e.target.value === '')}} onKeyDown={handleKeyPress}/>
