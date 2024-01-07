@@ -68,7 +68,7 @@ const Profile = () => {
 
     return (
         <div className='pt-24 pb-36 mx-4 min-h-screen flex flex-col items-center gap-4' style={{fontFamily: 'Roboto Mono'}}>
-            <div className="avatar w-52 h-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
+            <div className="avatar w-52 h-52 rounded-full ring dark:ring-white ring-black ring-offset-base-100 ring-offset-2 overflow-hidden">
                 <img src={Chris} alt="avatar"/>
             </div>
             <p className='font-bold text-6xl'>Chris Yates</p>

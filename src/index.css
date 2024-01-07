@@ -34,3 +34,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.prose pre, .prose img{
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 2rem;
+}
+
+.prose img{
+  padding: 0;
+  overflow: hidden;
+}
+
+.prose hr{
+  margin-bottom: 1rem;
+  height: 5px;
+}
+
+.prose p{
+  font-size: 18px;
+  
+}

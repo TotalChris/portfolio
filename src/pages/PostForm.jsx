@@ -18,6 +18,7 @@ const PostForm = () => {
     const [useEditor, setUseEditor] = useState(true);
     const parser = new MarkdownIt();
     const formRef = useRef();
+    const MdEditorRef = useRef();
 
     useEffect(() => {
         if (isMounted) {
@@ -50,6 +51,7 @@ const PostForm = () => {
     const storage = getStorage();
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         setLoading(true);
         let formDataCopy = {...formData, header: '', timestamp: serverTimestamp()};
         try{
@@ -77,7 +79,7 @@ const PostForm = () => {
         })
     };
 
-    const handleEditorChange = ({ html, text }) => {
+    const handleEditorChange = ({ text }) => {
         handleChange({
             target: {
                 id: 'content',
@@ -86,25 +88,26 @@ const PostForm = () => {
         })
     }
 
-    const handleSubmitClick = () => {
-        formRef.current.dispatchEvent(
-            new Event("submit", { bubbles: true, cancelable: true })
-        )
+    const handleEnter = (e) => {
+        // && e.target !== MdEditorRef.current
+        if (e.key === 'Enter' && !(e.target instanceof HTMLTextAreaElement)) {
+            e.preventDefault()
+        }
     }
 
     return (
-        <div className='mx-6 pt-24'  style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 px-2 mx-auto' style={{fontFamily: 'Roboto Mono', maxWidth: '1080px'}}>
             <h1 className='text-6xl'>Write a Post</h1>
-            <form className='py-12 flex flex-col' onSubmit={handleSubmit} ref={formRef}>
+            <form className='py-12 flex flex-col' onKeyDown={handleEnter} onSubmit={handleSubmit} ref={formRef}>
                 <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>
-                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
-                    <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-lg py-3 h-auto w-full' style={{borderTop: "none", borderTopRightRadius: 0, borderTopLeftRadius: 0}}/>
+                    <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input rounded-2xl bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
+                    <input required={true} id="subtitle" value={subtitle} onChange={handleChange} type='text' placeholder='Subtitle' className='input rounded-2xl bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-lg py-3 h-auto w-full' style={{borderTop: "none", borderTopRightRadius: 0, borderTopLeftRadius: 0}}/>
                     <p className='collapse-content break-words mt-2' style={{gridRowStart: 3}}>Your post will live at https://chrisyates.dev/posts/{title.trim().toLowerCase().replace(/ /g, "-")}</p>
                 </div>
                 <TagInput onChange={handleChange} id="tags"/>
                 <div className='flex flex-row items-center mt-8 gap-4'>
-                    <label htmlFor="headerImg" className='text-xl'>Image:</label>
-                    <input type="file" name="headerImg" onChange={handleChange} id='headerImg' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none" />
+                    <label htmlFor="headerImg" className='text-xl'>Thumbnail:</label>
+                    <input type="file" name="headerImg" onChange={handleChange} id='headerImg' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none rounded-2xl" />
                 </div>
                 <div className='flex flex-row items-start mt-8 gap-4'>
                     <input type="checkbox" className='checkbox checkbox-lg border-white [--chkbg:white]' name='isPrivate' id='isPrivate' onChange={handleChange}/>
@@ -115,14 +118,14 @@ const PostForm = () => {
                     <button type="button" className={"tab dark:text-white border-black h-12 " + (!useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(false)}>File Upload</button>
                 </div>
                 {(useEditor ? (
-                    <MdEditor style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
+                    <MdEditor ref={MdEditorRef} style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
                 ) : (
                     <div className='flex flex-col items-center mt-8'>
                         <label htmlFor="markdownFile" className='text-xl w-full'>Markdown or Text File:</label>
                         <input type="file" name="markdownFile" accept=".md,.txt" onChange={handleChange} id='markdownFile' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none w-full mt-4" />
                     </div>
                 ) )}
-                <button type='button' onClick={handleSubmitClick} className={'ml-auto btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white mt-8 min-h-fit' + (loading && 'btn-disabled')}>
+                <button type='submit' className={'ml-auto btn-wire mt-8 min-h-fit' + (loading && 'btn-disabled')}>
                     {loading ? <Spinner /> : 'Submit'}
                 </button>
             </form>
