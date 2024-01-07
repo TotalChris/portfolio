@@ -94,7 +94,7 @@ const Navbar = () => {
                     </div>
 
                 </h1>
-                {((!fieldFocus && loggedIn) && (
+                {((!fieldFocus && loggedIn && auth.currentUser.uid) && (
                     <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to={`/profile/${auth.currentUser.uid}`}>
                         <div className="w-8 h-8 rounded-full ring dark:ring-white ring-black ring-offset-base-100 ring-offset-2">
                             <img src={Chris} alt="avatar"/>
