@@ -6,7 +6,7 @@ import "./firebase.config";
 
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./sw.js");
+    navigator.serviceWorker.register("./sw.js").then();
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -19,7 +19,7 @@ const Post = () => {
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
 
     useEffect(() => {
-        fetchPost();
+        fetchPost().then();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

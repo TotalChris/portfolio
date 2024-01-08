@@ -63,7 +63,7 @@ const Profile = () => {
             setLoading(false);
         }
 
-        getUserPosts();
+        getUserPosts().then();
     }, [params.userId, filters])
 
     return (

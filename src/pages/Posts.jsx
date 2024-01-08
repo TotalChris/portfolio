@@ -47,7 +47,7 @@ const Posts = () => {
     }, [filters])
 
     useEffect(() => {
-        fetchPosts();
+        fetchPosts().then();
     }, [fetchPosts])
 
     const removeFilter = (filter) => {
@@ -67,7 +67,7 @@ const Posts = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" ref={sortBox} onChange={(e) => {
+                    <input type="checkbox" ref={sortBox} onChange={() => {
                         setPosts((prevState) => {
                                 let copy = [...prevState];
                                 return copy.reverse();

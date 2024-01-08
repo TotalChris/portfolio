@@ -59,7 +59,7 @@ const Resume = () => {
     }, [filters])
 
     useEffect(() => {
-        fetchJobs();
+        fetchJobs().then();
     }, [fetchJobs])
 
     return (
@@ -114,7 +114,7 @@ const Resume = () => {
                     <p className='text-lg italic'>Click a category tag to filter</p>
                 </div>
                 <label className="swap swap-rotate ml-auto">
-                    <input type="checkbox" ref={sortBox} onChange={(e) => {
+                    <input type="checkbox" ref={sortBox} onChange={() => {
                         setJobs((prevState) => {
                             let copy = [...prevState];
                             return copy.reverse();

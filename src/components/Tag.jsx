@@ -1,7 +1,7 @@
 import React from 'react';
 import {BsXCircle, BsArrowUpRightCircle} from 'react-icons/bs'
 
-const Tag = ({text, removable, handleClick, handleRemove, highlight, className, linking}) => {
+const Tag = ({text, removable, handleClick, handleRemove, className, linking}) => {
     return (
         <div
             className={"badge badge-outline min-w-max select-none p-3 h-6 rounded-full border-black dark:border-white hover:cursor-pointer text-sm " + (

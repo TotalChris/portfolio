@@ -38,9 +38,9 @@ const Contact = () => {
 
                 <input type="hidden" name="form-name" value="contact" />
                 <div className='flex flex-row gap-4 mt-8 w-full flex-wrap'>
-                    <input type="text" name="name" id="name" value={name} onChange={handleChange} placeholder='Name / Company' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white grow min-w-full md:min-w-0 rounded-2xl' />
+                    <input type="text" name="name" id="name" value={name} onChange={handleChange} placeholder='Name / Company' className='input bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white grow min-w-full md:min-w-0 rounded-2xl' />
                     <ValidationError prefix="Name" field="name" errors={formState.errors} />
-                    <input type="text" name="contact" id="contact" value={contact} onChange={handleChange} placeholder='Email or Phone Number' className='input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white grow min-w-full md:min-w-0 rounded-2xl' />
+                    <input type="text" name="contact" id="contact" value={contact} onChange={handleChange} placeholder='Email or Phone Number' className='input bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white grow min-w-full md:min-w-0 rounded-2xl' />
                     <ValidationError prefix="Contact" field="contact" errors={formState.errors} />
                 </div>
                 <div className='flex flex-row gap-8 mt-4'>

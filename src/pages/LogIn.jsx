@@ -40,10 +40,10 @@ const LogIn = () => {
                 <div className='flex flex-wrap mt-10' style={{gap: '8px'}} >
                     <div className="flex sm:flex-row flex-col gap-4 items-stretch w-full">
                         <div className="form-control grow">
-                            <input type="email" id="email" value={email} onChange={handleChange} placeholder="User ID" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white rounded-2xl" />
+                            <input type="email" id="email" value={email} onChange={handleChange} placeholder="User ID" className="input bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white rounded-2xl" />
                         </div>
                         <div className="form-control grow">
-                            <input type="password" id="password" value={password} onChange={handleChange} placeholder="Password" className="input input-bordered bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white rounded-2xl" />
+                            <input type="password" id="password" value={password} onChange={handleChange} placeholder="Password" className="input bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white rounded-2xl" />
                         </div>
                         <button className="btn-wire mr-auto">Log In</button>
                     </div>

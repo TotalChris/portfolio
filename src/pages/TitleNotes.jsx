@@ -32,7 +32,7 @@ const TitleNotes = () => {
                 </div>
             </div>
 
-            <div className="p-10 bg-neutral-100 dark:bg-black text-black dark:text-white" >
+            <div className="p-10 bg-neutral-100 dark:bg-black text-black dark:text-white" id="colors">
                 <div className="p-5 hero rounded-3xl border-black dark:border-white" style={{border: "1px solid"}}>
                     <div className="hero-content flex-col md:flex-row-reverse">
                         <img src={tnFeature1} alt="Custmizing a List in Title Notes" className="max-w-sm rounded-lg shadow-2xl w-1/2 lg:w-full" />
