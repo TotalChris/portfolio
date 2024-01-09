@@ -1,0 +1,26 @@
+.route {
+	position: absolute;
+	left: 15px;
+	right: 15px;
+}
+
+.route-enter {
+	filter: blur(20px);
+}
+
+.route-enter-active {
+	filter: blur(0px);
+	transition: filter .35s;
+}
+
+.route-exit {
+	filter: blur(0px);
+	opacity: 100%;
+	backdrop-filter: blur(40px);
+}
+
+.route-exit-active {
+	filter: blur(20px);
+	opacity: 0;
+	transition: filter .35s ease-in, opacity .35s ease-in;
+}
