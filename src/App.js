@@ -35,7 +35,7 @@ function NavFrame() {
                 <CSSTransition
                     key={location.pathname}
                     nodeRef={nodeRef}
-                    timeout={700}
+                    timeout={500}
                     classNames="route"
                     unmountOnExit
                     >
@@ -59,7 +59,7 @@ const routes = [
     {name: 'Thanks', ref: createRef(), path: '/contact/thank-you', Component: ThankYou},
     {name: 'Log In', ref: createRef(), path: '/log-in', Component: LogIn},
     {name: 'Log Out', ref: createRef(), path: '/log-out', Component: PrivateRoute, children: [ {path: '/log-out', Component: LogOut} ]},
-    {name: 'Profile', ref: createRef(), path: '/profile:userId', Component: Profile},
+    {name: 'Profile', ref: createRef(), path: '/profile/:userId', Component: Profile},
     {name: 'New Post', ref: createRef(), path: '/new-post', Component: PrivateRoute, children: [ {path: '/new-post', Component: PostForm} ]},
     {name: 'Posts', ref: createRef(), path: '/posts', Component: Posts},
     {name: 'Post', ref: createRef(), path: '/posts/:postId', Component: Post},
