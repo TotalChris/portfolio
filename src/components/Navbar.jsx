@@ -67,7 +67,7 @@ const Navbar = () => {
     }
 
     return (
-        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-base-200 dark:bg-black' : 'collapse-open bg-base-300 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
+        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-white dark:bg-black' : 'collapse-open bg-base-200 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
             <div className='navbar collapse-title pr-1.5'>
                 <h1 className='text-lg w-full overflow-x-scroll overflow-y-hidden relative' style={{fontFamily: 'Roboto Mono',}}>
                     {( showPath ? (
@@ -94,7 +94,7 @@ const Navbar = () => {
                     </div>
 
                 </h1>
-                {((!fieldFocus && (loggedIn ?? auth.currentUser)) && (
+                {((!fieldFocus && auth.currentUser) && (
                     <Link className="avatar p-2 pr-5 hover:cursor-pointer relative right-0" to={`/profile/${auth.currentUser.uid}`}>
                         <div className="w-8 h-8 rounded-full ring dark:ring-white ring-black ring-offset-base-100 ring-offset-2">
                             <img src={Chris} alt="avatar"/>
