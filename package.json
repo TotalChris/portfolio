@@ -12,6 +12,7 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@tailwindcss/typography": "^0.5.10",
+    "@vercel/analytics": "^1.1.1",
     "daisyui": "^4.5.0",
     "firebase": "^10.7.1",
     "markdown-it": "^14.0.0",
