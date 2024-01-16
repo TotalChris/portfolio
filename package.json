@@ -1,7 +1,7 @@
 {
   "name": "my-site",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,7 @@
     "@formspree/react": "^2.5.1",
     "@tailwindcss/typography": "^0.5.10",
     "@vercel/analytics": "^1.1.1",
-    "daisyui": "^4.5.0",
+    "daisyui": "^4.6.0",
     "firebase": "^10.7.1",
     "markdown-it": "^14.0.0",
     "react": "^18.2.0",
