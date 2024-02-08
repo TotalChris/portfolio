@@ -1,8 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import JobEntry from "../components/JobEntry";
-import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
 import Spinner from "../components/Spinner";
-import {db} from "../firebase.config";
 import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import Tag from "../components/Tag";
 import tn from "../assets/projectAssets/tn.png"
@@ -35,26 +33,20 @@ const Resume = () => {
         setLoading(true);
 
         const sortType = (sortBox.current.checked ? 'asc' :  'desc')
+        console.log(sortType)
 
-        const jobsRef = collection(db, 'jobs');
-        let jobsQuery;
+        let sanityQuery;
         if(filters.length > 0){
-            jobsQuery = await query(jobsRef, orderBy('startDate', sortType), where('tags', 'array-contains-any', filters));
+            sanityQuery = encodeURIComponent(`*[_type == "job" && count((tags[])[@ in [${filters.map((filter) => `"${filter}"`)}]]) > 0] | order(startMonth ${sortType})`);
         } else {
-            jobsQuery = await query(jobsRef, orderBy('startDate', sortType));
+            sanityQuery = encodeURIComponent(`*[_type == "job"] | order(startMonth ${sortType})`);
         }
-        const jobsSnap = await getDocs(jobsQuery);
 
-        const jobs = []
+        const sanityURL = import.meta.env.VITE_SANITY_ENDPOINT + sanityQuery;
+        const sanityResponse = await fetch(sanityURL);
+        const sanityData = await sanityResponse.json();
 
-        jobsSnap.forEach((doc) => {
-            return jobs.push({
-                id: doc.id,
-                data: doc.data(),
-            })
-        })
-
-        setJobs(jobs);
+        setJobs(sanityData.result);
         setLoading(false);
     }, [filters])
 
@@ -139,7 +131,7 @@ const Resume = () => {
                 <Spinner />
             ) :
                 jobs.map((job, i) => {
-                    return <JobEntry jobData={job.data} handleFilterPush={addFilter} key={i}/>
+                    return <JobEntry jobData={job} handleFilterPush={addFilter} key={i}/>
                 })
             )}
         </div>

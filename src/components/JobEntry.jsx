@@ -1,15 +1,18 @@
 import Tag from "./Tag";
 
 const JobEntry = ({ jobData, handleFilterPush }) => {
+
   const {
-    company,
-    startDate,
-    endDate,
     title,
+    corporation,
+    startMonth,
+    endMonth,
+    jobTitle,
     responsibilities,
     tags,
     location,
-    ongoing,
+    isOngoing,
+    isFranchise,
   } = jobData;
 
   const dateFormatter = Intl.DateTimeFormat("en-US", {
@@ -17,34 +20,33 @@ const JobEntry = ({ jobData, handleFilterPush }) => {
     year: "numeric",
   });
 
+  const start = `${(new Date(startMonth).getUTCMonth()+1).toString().padStart(2, '0')}/${new Date(startMonth).getUTCFullYear()}`
+  const end = `${(new Date(endMonth).getUTCMonth()+1).toString().padStart(2, '0')}/${new Date(endMonth).getUTCFullYear()}`
+
   return (
     <div className="text-md py-4" style={{ fontFamily: "Roboto Mono" }}>
       <div className="flex flex-row">
         <h1 className="grow">
-          <span className="font-bold">{company}</span>
+          <span className="font-bold">{(isFranchise ? `${title} (${corporation})` : title)}</span>
           <span className="md:hidden">
             <br></br>
-            {title}
+            {jobTitle}
           </span>
         </h1>
         <h1 className="hidden text-right font-bold text-neutral-500 md:block">
-          {dateFormatter.format(startDate.toDate()) +
-            " - " +
-            (ongoing ? "ongoing" : dateFormatter.format(endDate.toDate()))}
+          {start + " - " + (isOngoing ? "ongoing" : end)}
         </h1>
       </div>
       <div className="flex flex-row">
         <h1 className="hidden grow md:block">
-          <span className="">{title}</span>
+          <span className="">{jobTitle}</span>
         </h1>
         <h1 className="hidden text-right text-neutral-500 md:block">
           {location}
         </h1>
       </div>
       <h1 className="block font-bold text-neutral-500 md:hidden">
-        {dateFormatter.format(startDate.toDate()) +
-          " - " +
-          (ongoing ? "ongoing" : dateFormatter.format(endDate.toDate()))}
+        {start + " - " + (isOngoing ? "ongoing" : end)}
       </h1>
       <h1 className="block text-neutral-500 md:hidden">{location}</h1>
       <div className="relative -left-4 mt-4 flex w-screen flex-row gap-2 overflow-x-scroll px-4">
