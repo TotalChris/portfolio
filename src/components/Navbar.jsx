@@ -67,7 +67,7 @@ const Navbar = () => {
     }
 
     return (
-        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-white dark:bg-black' : 'collapse-open bg-base-200 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
+        <div tabIndex={0} onMouseLeave={handleFade} onBlur={handleBlur} className={ 'fixed top-0 z-10 w-full collapse rounded-none group ' + ( !fieldFocus ? 'collapse-close bg-white dark:bg-black' : 'collapse-open bg-neutral-100 dark:bg-neutral-900' )} style={{transition: 'background-color .3s ease-in-out'}}>
             <div className='navbar collapse-title pr-1.5'>
                 <h1 className='text-lg w-full overflow-x-scroll overflow-y-hidden relative' style={{fontFamily: 'Roboto Mono',}}>
                     {( showPath ? (
