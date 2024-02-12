@@ -11,7 +11,11 @@
     "postbuild": "react-snap"
   },
   "reactSnap": {
-    "source": "dist"
+    "source": "dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "dependencies": {
     "@formspree/react": "^2.5.1",
