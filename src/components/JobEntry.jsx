@@ -49,7 +49,7 @@ const JobEntry = ({ jobData, handleFilterPush }) => {
         {start + " - " + (isOngoing ? "ongoing" : end)}
       </h1>
       <h1 className="block text-neutral-500 md:hidden">{location}</h1>
-      <div className="relative -left-4 mt-4 flex w-screen flex-row gap-2 overflow-x-scroll px-4">
+      <div className="relative -left-4 mt-4 flex lg:w-full w-screen flex-row gap-2 overflow-x-scroll px-4">
         {tags.map((tag, i) => {
           return (
             <Tag

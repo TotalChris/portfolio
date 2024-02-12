@@ -55,7 +55,7 @@ const Resume = () => {
     }, [fetchJobs])
 
     return (
-        <div className='pt-24 px-4 mx-auto' style={{maxWidth: '1080px'}}>
+        <div className='pt-24 px-4 mx-auto max-w-screen-col'>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
             </div>

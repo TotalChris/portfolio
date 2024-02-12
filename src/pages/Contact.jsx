@@ -42,7 +42,7 @@ const Contact = () => {
     }
 
     return (
-        <div className='pt-24 mx-auto px-4 pb-4' style={{fontFamily: 'Roboto Mono', maxWidth: '1080px'}}>
+        <div className='pt-24 mx-auto px-4 pb-4 max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
             <h1 className='text-6xl'>Contact Me</h1>
             <form method="POST" onSubmit={handleSubmit} onFocus={() => {setError(false)}} className='w-full'>
             <p className='text-xl mt-8'>Feel free to reach out to me with any potential projects or employment opportunites that you think would fit my skill set!</p><br/><p> If you want more info about my existing work, check out my <Link to='/resume' className='underline hover:cursor-pointer'>resume</Link>.</p>

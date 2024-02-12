@@ -63,7 +63,7 @@ const Posts = () => {
     }
 
     return (
-        <div className='pt-24 px-4 mx-auto' style={{maxWidth: '1080px'}}>
+        <div className='pt-24 px-4 mx-auto max-w-screen-col'>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
