@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import {Analytics} from "@vercel/analytics/react";
 import './index.css';
 import App from './App';
@@ -8,9 +8,22 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register("./sw.js").then();
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <>
-        <App />
-        <Analytics />
-    </>
-);
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+if(rootElement.hasChildNodes()) {
+    hydrateRoot(
+        rootElement,
+        <>
+            <App />
+            <Analytics />
+        </>
+    )
+} else {
+    root.render(
+        <>
+            <App />
+            <Analytics />
+        </>
+    );
+}

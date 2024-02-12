@@ -1,5 +1,6 @@
 import React from 'react';
 import SlowPhotoCarousel from "../components/SlowPhotoCarousel";
+import { Helmet } from 'react-helmet';
 import Chris1 from "../assets/carousel/Chris-01.webp";
 import Chris2 from "../assets/carousel/Chris-02.webp";
 import Chris3 from "../assets/carousel/Chris-03.webp";
@@ -21,6 +22,9 @@ const Home = () => {
 
     return (
         <>
+        <Helmet>
+            <title>Chris Yates | Home</title>
+        </Helmet>
         <div className="hero min-h-screen overflow-hidden pt-24">
             <div className="flex flex-col p-0 lg:flex-row lg:p-16 2xl:max-w-screen-2xl w-screen" style={{gap: '16px',}}>
                 <SlowPhotoCarousel images={[Chris1, Chris2, Chris3, Chris4, Chris5, Chris6, Chris7, Chris8, Chris9, Chris10, Chris11, Chris12, Chris13]} className='lg:w-3/5'/>

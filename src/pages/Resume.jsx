@@ -6,6 +6,7 @@ import Tag from "../components/Tag";
 import tn from "../assets/projectAssets/tn.png"
 import jt from "../assets/projectAssets/jt.png"
 import {useNavigate, Link} from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 const Resume = () => {
 
@@ -56,6 +57,9 @@ const Resume = () => {
 
     return (
         <div className='pt-24 px-4 mx-auto max-w-screen-col'>
+            <Helmet>
+                <title>Chris Yates | Resume</title>
+            </Helmet>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
             </div>

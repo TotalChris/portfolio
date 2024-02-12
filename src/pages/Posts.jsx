@@ -5,6 +5,7 @@ import {db} from "../firebase.config";
 import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import PostListing from "../components/PostListing";
 import Tag from "../components/Tag";
+import { Helmet } from 'react-helmet';
 
 const Posts = () => {
 
@@ -64,6 +65,9 @@ const Posts = () => {
 
     return (
         <div className='pt-24 px-4 mx-auto max-w-screen-col'>
+            <Helmet>
+                <title>Chris Yates | Blog Posts</title>
+            </Helmet>
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
