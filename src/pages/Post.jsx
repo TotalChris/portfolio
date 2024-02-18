@@ -61,7 +61,7 @@ const Post = () => {
                         <meta name="twitter:image" content={post.header} />
                     </Helmet>
                     <img src={post.header} className='w-full h-96 object-cover rounded-3xl text-left' alt='post'/>
-                    <h1 className='sm:text-6xl text-5xl relative l-0 w-full'>{post.title}</h1>
+                    <h1 className='text-5xl relative l-0 w-full'>{post.title}</h1>
                     <blockquote className="text-xl border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400 w-full">{post.subtitle}</blockquote>
                     <div className='flex flex-row w-full items-center'>
                         <Link className="avatar p-2 pr-5 hover:cursor-pointer" to={`/profile/${post.userRef}`}>

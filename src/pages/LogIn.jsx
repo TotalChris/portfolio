@@ -35,7 +35,7 @@ const LogIn = () => {
 
     return (
         <div className='pt-24 px-4 min-h-screen mx-auto max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
-            <h1 className='text-6xl'>Admin Login</h1>
+            <h1 className='text-5xl'>Admin Login</h1>
             <form className={ 'w-full collapse ' + (error ? 'collapse-open' : '') } onSubmit={handleSubmit}>
                 <div className='flex flex-wrap mt-10' style={{gap: '8px'}} >
                     <div className="flex sm:flex-row flex-col gap-4 items-stretch w-full">

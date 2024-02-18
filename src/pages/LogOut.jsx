@@ -14,8 +14,8 @@ const LogOut = () => {
     }, [auth, navigate])
 
     return (
-        <div className='mx-6 pt-24' style={{fontFamily: 'Roboto Mono'}}>
-            <h1 className='text-6xl' >Signing Out</h1>
+        <div className='mx-6 pt-24 mx-auto max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
+            <h1 className='text-5xl' >Signing Out</h1>
             <div className='w-full h-screen pt-6'>
                 <p className='font-bold'>you will be redirected...</p>
             </div>
