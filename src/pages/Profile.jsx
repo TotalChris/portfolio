@@ -67,11 +67,11 @@ const Profile = () => {
     }, [params.userId, filters])
 
     return (
-        <div className='pt-24 pb-36 mx-4 min-h-screen flex flex-col items-center gap-4' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 pb-36 mx-auto max-w-screen-col min-h-screen flex flex-col items-center gap-4' style={{fontFamily: 'Roboto Mono'}}>
             <div className="avatar w-52 h-52 rounded-full ring dark:ring-white ring-black ring-offset-base-100 ring-offset-2 overflow-hidden">
                 <img src={Chris} alt="avatar"/>
             </div>
-            <p className='font-bold text-6xl'>Chris Yates</p>
+            <p className='font-bold text-5xl'>Chris Yates</p>
             <p className='text-xl italic text-neutral-500'>Administrator</p>
             <div className='flex flex-row w-full mx-8'>
                 <h1 className='text-4xl' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>

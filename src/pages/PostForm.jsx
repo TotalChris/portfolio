@@ -97,7 +97,7 @@ const PostForm = () => {
 
     return (
         <div className='pt-24 px-2 mx-auto max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
-            <h1 className='text-6xl'>Write a Post</h1>
+            <h1 className='text-5xl'>Write a Post</h1>
             <form className='py-12 flex flex-col' onKeyDown={handleEnter} onSubmit={handleSubmit} ref={formRef}>
                 <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>
                     <input required={true} id="title" value={title} onChange={handleChange} type='text' placeholder='Title' className='input rounded-2xl bg-transparent border-black text-black dark:border-white dark:text-white outline-none focus:outline-none focus:border-black focus:dark:border-white text-2xl py-3 h-auto w-full' style={{borderBottom: "none", borderBottomRightRadius: 0, borderBottomLeftRadius: 0}}/>
