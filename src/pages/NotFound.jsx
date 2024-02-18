@@ -1,4 +1,3 @@
-import React from 'react';
 import {Link} from "react-router-dom";
 
 const NotFound = () => {
@@ -6,7 +5,7 @@ const NotFound = () => {
         <div className='notFound mx-6 pt-24' style={{fontFamily: 'Roboto Mono'}}>
             <h1 className='text-6xl'>404</h1>
             <div className='w-full h-screen'>
-                <p className='mt-2 font-bold'>There's no way forward.<br /><Link to='/' className='font-normal hover:underline'>Return home</Link>.</p>
+                <p className='mt-2 font-bold'>There&apos;s no way forward.<br /><Link to='/' className='font-normal hover:underline'>Return home</Link>.</p>
             </div>
         </div>
     );

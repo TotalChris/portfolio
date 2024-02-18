@@ -1,4 +1,3 @@
-import React from 'react';
 import {BsArrowDownCircle, BsArrowUpRightCircle} from "react-icons/bs";
 import tnIcon from "../assets/projectAssets/tn.png"
 import tnSpread from "../assets/titlenew.png"
@@ -51,8 +50,8 @@ const TitleNotes = () => {
                         <img src={tnFeature2} alt="A Shopping List in Title Notes" className="max-w-sm rounded-lg shadow-2xl w-1/2 lg:w-full" />
                         <div className="mt-10 md:ml-10 max-w-md">
                             <h1 className="text-5xl font-bold">Your shopping, from start to finish</h1>
-                            <p className="py-6">Notes you write in Title can be checked off when you're done with a task, making Title the perfect notes/to-do list hybrid.</p>
-                            <a href='https://titlenotes.netlify.app/' className="btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl">Git 'er done&nbsp;<BsArrowUpRightCircle /></a>
+                            <p className="py-6">Notes you write in Title can be checked off when you&apos;re done with a task, making Title the perfect notes/to-do list hybrid.</p>
+                            <a href='https://titlenotes.netlify.app/' className="btn btn-primary border-black bg-black text-white dark:border-white dark:bg-white dark:text-black hover:bg-transparent hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white rounded-2xl">Git &apos;er done&nbsp;<BsArrowUpRightCircle /></a>
                         </div>
                     </div>
                 </div>
