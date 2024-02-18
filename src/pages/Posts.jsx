@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
 import Spinner from "../components/Spinner";
 import {db} from "../firebase.config";

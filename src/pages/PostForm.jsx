@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import TagInput from "../components/TagInput";
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore'

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import JobEntry from "../components/JobEntry";
 import Spinner from "../components/Spinner";
 import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
@@ -100,7 +100,7 @@ const Resume = () => {
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
                             <div className='flex flex-col sm:flex-row w-full justify-between items-center' style={{fontFamily: 'Roboto Mono'}}>
                                 <h1 className="text-2xl mb-2 sm:mb-0" style={{fontFamily: 'Roboto Mono'}}>Want To Work Together?</h1>
-                                <Link to='/contact' className="mt-2 sm:mt-0 btn-wire w-full sm:w-auto">Let's Make Cool Stuff</Link>
+                                <Link to='/contact' className="mt-2 sm:mt-0 btn-wire w-full sm:w-auto">Let&apos;s Make Cool Stuff</Link>
                             </div>
                     </div>
                 </div>

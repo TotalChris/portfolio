@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import Chris from "../assets/carousel/Chris-07.webp";
 import {useNavigate, useParams} from "react-router-dom";
 import {db} from '../firebase.config'
@@ -97,7 +97,7 @@ const Profile = () => {
             )}
             {(loading ? <Spinner /> :
                 userPosts.map(({data, id}) => {
-                    return <PostListing post={data} postId={id} handleFilterPush={addFilter} handleRemove={removePost}/>
+                    return <PostListing post={data} postId={id} handleFilterPush={addFilter} handleRemove={removePost} key={id}/>
                 })
             )}
             {(auth.currentUser?.uid === params.userId  && (
