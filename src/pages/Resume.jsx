@@ -7,6 +7,7 @@ import tn from "../assets/projectAssets/tn.png"
 import jt from "../assets/projectAssets/jt.png"
 import {useNavigate, Link} from "react-router-dom";
 import { Helmet } from 'react-helmet';
+import ProjectCard from '../components/ProjectCard';
 
 const Resume = () => {
 
@@ -65,36 +66,12 @@ const Resume = () => {
             </div>
             <hr className='border-black dark:border-white'/>
             <div className='flex flex-col lg:flex-row pb-4 pt-4 gap-4'>
-            <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer p-4" style={{ border: "1px solid" }}>
-                    <div className="flex flex-col items-start w-full gap-4 lg:gap-0 lg:h-full justify-between" style={{ maxWidth: "unset" }}>
-                        <div className="flex gap-4 sm:flex-col flex-row justify-between items-center sm:items-start w-full">
-                            <img src={jt} className='h-16 w-16 rounded-2xl' alt="JT Hair icon"></img>
-                            <h1 className="text-5xl font-bold" style={{fontFamily: "JT", fontWeight: 'lighter'}}>JT Hair</h1>
-                        </div>
-                            <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
-                                <div className="flex flex-col">
-                                    <p>Site for JT Hair of Brighton, MI</p>
-                                    <p className='text-neutral-500'>March 2023</p>
-                                </div>
-                                <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn-wire">Visit Site</a>
-                            </div>
-                    </div>
-                </div>
-                <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer p-4" style={{ border: "1px solid" }}>
-                    <div className="flex flex-col items-start w-full gap-4 lg:gap-0 lg:h-full justify-between" style={{ maxWidth: "unset" }}>
-                        <div className="flex gap-4 sm:flex-col flex-row justify-between items-center sm:items-start w-full">
-                            <img src={tn} className='h-16 w-16 rounded-2xl' alt="Title Notes icon"></img>
-                            <h1 className="text-4xl" style={{fontFamily: "TN"}}>Title Notes</h1>
-                        </div>
-                            <div className='flex flex-col sm:flex-row w-full justify-between' style={{fontFamily: 'Roboto Mono'}}>
-                                <div className="flex flex-col">
-                                    <p>Simple and stylish note-taking PWA</p>
-                                    <p className='text-neutral-500'>October 2022</p>
-                                </div>
-                                <button className="mt-2 sm:mt-0 btn-wire" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
-                            </div>
-                    </div>
-                </div>
+                <ProjectCard name="JT Hair" description="Site for JT Hair of Brighton, MI" logoStyle={{fontFamily: "JT", fontWeight: 'lighter'}} icon={jt} date="March 2023">
+                    <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn-wire">Visit Site</a>
+                </ProjectCard>
+                <ProjectCard name="Title Notes" description="Simple and stylish note-taking PWA" logoStyle={{fontFamily: "TN"}} icon={tn} date="October 2022">
+                    <button className="mt-2 sm:mt-0 btn-wire" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
+                </ProjectCard>
             </div>
             <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer mb-12" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
