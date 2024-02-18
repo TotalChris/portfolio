@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const Contact = () => {
+const Construction = () => {
     return (
         <div className='mx-6 pt-24'>
             <h1 className='text-6xl' style={{fontFamily: 'Roboto Mono'}}>This room is empty...</h1>
@@ -12,4 +12,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default Construction;
