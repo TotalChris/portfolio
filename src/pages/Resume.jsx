@@ -69,7 +69,7 @@ const Resume = () => {
                 <ProjectCard name="JT Hair" description="Site for JT Hair of Brighton, MI" logoStyle={{fontFamily: "JT", fontWeight: 'lighter'}} icon={jt} date="March 2023">
                     <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn-wire">Visit Site</a>
                 </ProjectCard>
-                <ProjectCard name="Title Notes" description="Simple and stylish note-taking PWA" logoStyle={{fontFamily: "TN"}} icon={tn} date="October 2022">
+                <ProjectCard name="Title Notes" description="Simple and stylish note-taking PWA" logoStyle={{fontFamily: "TN", fontWeight: '500'}} icon={tn} date="October 2022">
                     <button className="mt-2 sm:mt-0 btn-wire" onClick={() => {window.scrollTo(0, 0); navigate('/title-notes');}}>Learn More</button>
                 </ProjectCard>
             </div>
