@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function ProjectCard({icon, name, logoStyle, description, date, children}) {
   return (
     <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer p-4" style={{ border: "1px solid" }}>
@@ -16,4 +18,13 @@ export default function ProjectCard({icon, name, logoStyle, description, date, c
         </div>
     </div>
   )
+}
+
+ProjectCard.propTypes = {
+    icon: PropTypes.node.isRequired,
+    name: PropTypes.string.isRequired,
+    logoStyle: PropTypes.object,
+    description: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    children: PropTypes.node,
 }
