@@ -10,9 +10,10 @@
     "preview": "vite preview",
     "postbuild": "react-snap"
   },
-  "homepage": ".", 
   "reactSnap": {
     "source": "dist",
+    "skipThirdPartyRequests": true,
+    "preconnectThirdParty": false,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
