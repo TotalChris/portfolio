@@ -1,5 +1,6 @@
 import SlowPhotoCarousel from "../components/SlowPhotoCarousel";
 import { Helmet } from 'react-helmet';
+import { Link } from "react-router-dom";
 import Chris1 from "../assets/carousel/Chris-01.webp";
 import Chris2 from "../assets/carousel/Chris-02.webp";
 import Chris3 from "../assets/carousel/Chris-03.webp";
@@ -32,6 +33,7 @@ const Home = () => {
                     <p className='py-4' style={{maxWidth: '440px'}}>I&apos;m a 23-year-old independent web developer based in the United States. I have big dreams about what the web and its portability and capability offers us. I have extensive experience in vanilla web design, and I am familiar with popular frameworks like React, Next.js, and more.</p>
                     <div className='flex sm:flex-row flex-col gap-2' style={{fontFamily: 'Roboto Mono',}}>
                         <button className="btn-wire" onClick={() => {navigate('/resume')}}>My Resume</button>
+                        <Link to="https://github.com/totalchris" className="btn-wire">My GitHub</Link>
                         <button className="btn-wire" onClick={() => {navigate('/contact')}}>Contact Me</button>
                     </div>
                 </div>
