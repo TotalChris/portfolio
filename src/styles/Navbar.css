@@ -16,7 +16,7 @@ a{
     height: inherit;
     padding-inline: .5rem;
     align-content: center;
-    color: white;
+    color: var(--primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom .2s ease-in-out;
@@ -27,7 +27,7 @@ a:has(svg){
 }
 
 a.current{
-    border-bottom: 1px solid white !important;
+    border-bottom: 1px solid var(--primary) !important;
 }
 
 .endcap:not(.endcap ~ .endcap){
