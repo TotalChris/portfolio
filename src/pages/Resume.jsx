@@ -35,7 +35,6 @@ const Resume = () => {
         setLoading(true);
 
         const sortType = (sortBox.current.checked ? 'asc' :  'desc')
-        console.log(sortType)
 
         let sanityQuery;
         if(filters.length > 0){

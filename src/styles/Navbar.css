@@ -1,3 +1,35 @@
-::-webkit-scrollbar {
-    display: none;
+nav{
+    --primary: black;
+    --secondary: lightgray;
+    border-bottom: 1px solid var(--secondary);
+}
+
+@media (prefers-color-scheme: dark){
+    nav{
+        --primary: white;
+        --secondary: gray;
+    }
+}
+
+a{
+    font-size: 1rem;
+    height: inherit;
+    padding-inline: .5rem;
+    align-content: center;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom .2s ease-in-out;
+}
+
+a:has(svg){
+    padding-block: .25rem;
+}
+
+a.current{
+    border-bottom: 1px solid white !important;
+}
+
+.endcap:not(.endcap ~ .endcap){
+    margin-left: auto;
 }
