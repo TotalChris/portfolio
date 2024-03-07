@@ -96,7 +96,7 @@ const PostForm = () => {
     }
 
     return (
-        <div className='pt-24 px-2 mx-auto max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 px-2 mx-auto max-w-screen-col'>
             <h1 className='text-5xl'>Write a Post</h1>
             <form className='py-12 flex flex-col' onKeyDown={handleEnter} onSubmit={handleSubmit} ref={formRef}>
                 <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>

@@ -24,7 +24,7 @@ const JobEntry = ({ jobData, handleFilterPush }) => {
   const end = `${(new Date(endMonth).getUTCMonth()+1).toString().padStart(2, '0')}/${new Date(endMonth).getUTCFullYear()}`
 
   return (
-    <div className="text-md py-4" style={{ fontFamily: "Roboto Mono" }}>
+    <div className="text-md py-4">
       <div className="flex flex-row">
         <h1 className="grow">
           <span className="font-bold">{(isFranchise ? `${title} (${corporation})` : title)}</span>

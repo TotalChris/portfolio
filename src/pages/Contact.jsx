@@ -43,7 +43,7 @@ const Contact = () => {
     }
 
     return (
-        <div className='pt-24 mx-auto px-4 pb-4 max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 mx-auto px-4 pb-4 max-w-screen-col'>
             <Helmet>
                 <title>Chris Yates | Contact</title>
             </Helmet>
