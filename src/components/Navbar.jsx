@@ -24,22 +24,22 @@ const Navbar = () => {
     return (
         <div className='fixed top-0 z-10 bg-white dark:bg-black w-full' style={{maxWidth: '100vw'}}>
             <nav className='h-8 flex mx-4 lg:mx-8 mt-8 text-black dark:text-white gap-2 text-md'>
-                <Link to="/" className={`${location.pathname === '/' && 'current'}`}>Home</Link>
-                <Link to="/resume" className={`${location.pathname === '/resume' && 'current'}`}>Resume</Link>
-                <Link to="/contact" className={`${location.pathname === '/contact' && 'current'}`}>Contact</Link>
+                <Link to="/" className={`navbar-link ${location.pathname === '/' && 'current'}`}>Home</Link>
+                <Link to="/resume" className={`navbar-link ${location.pathname === '/resume' && 'current'}`}>Resume</Link>
+                <Link to="/contact" className={`navbar-link ${location.pathname === '/contact' && 'current'}`}>Contact</Link>
                 {loggedIn  && (
-                    <Link to="/posts" className={`${location.pathname === '/posts' && 'current'}`}>Posts</Link>
+                    <Link to="/posts" className={`navbar-link ${location.pathname === '/posts' && 'current'}`}>Posts</Link>
                 )}
                 {loggedIn ? (
-                    <Link to="/log-out" className={`endcap ${location.pathname === '/log-out' && 'current'}`} >
+                    <Link to="/log-out" className={`navbar-link endcap ${location.pathname === '/log-out' && 'current'}`} >
                         <BsDoorOpenFill />
                     </Link>
                 ) : (
-                    <Link to="/log-in" className={`endcap ${location.pathname === '/log-in' && 'current'}`} >
+                    <Link to="/log-in" className={`navbar-link endcap ${location.pathname === '/log-in' && 'current'}`} >
                         <BsKeyFill />
                     </Link>
                 )}
-                <a href="https://github.com/totalchris/" className={`endcap ${location.pathname === '#' && 'current'}`}>
+                <a href="https://github.com/totalchris/" className={`navbar-link endcap ${location.pathname === '#' && 'current'}`}>
                     <BsGithub />
                 </a>
             </nav>
