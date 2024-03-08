@@ -39,9 +39,9 @@ const Navbar = () => {
                         <BsKeyFill />
                     </Link>
                 )}
-                <Link to="#" className={`endcap ${location.pathname === '#' && 'current'}`}>
+                <a href="https://github.com/totalchris/" className={`endcap ${location.pathname === '#' && 'current'}`}>
                     <BsGithub />
-                </Link>
+                </a>
             </nav>
         </div>
     )

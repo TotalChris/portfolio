@@ -56,7 +56,7 @@ const Resume = () => {
     }, [fetchJobs])
 
     return (
-        <div className='pt-24 px-4 mx-auto max-w-screen-col'>
+        <div className='pt-24 px-4 mx-auto max-w-screen col:max-w-screen-col overflow-x-hidden'>
             <Helmet>
                 <title>Chris Yates | Resume</title>
             </Helmet>
