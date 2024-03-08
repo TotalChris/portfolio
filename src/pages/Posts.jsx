@@ -69,7 +69,7 @@ const Posts = () => {
                 <title>Chris Yates | Blog Posts</title>
             </Helmet>
             <div className='flex flex-row'>
-                <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>Blog Posts</h1>
+                <h1 className='text-5xl pb-4'>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
                     <input type="checkbox" ref={sortBox} onChange={() => {
                         setPosts((prevState) => {

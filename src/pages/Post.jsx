@@ -36,7 +36,7 @@ const Post = () => {
 
     const helmetContext = {};
     return (
-        <div className='pt-24 flex flex-col items-center gap-6 lg:mx-auto mx-4 px-2 max-w-screen-col' style={{fontFamily: 'Roboto Mono'}}>
+        <div className='pt-24 flex flex-col items-center gap-6 lg:mx-auto mx-4 px-2 max-w-screen-col'>
             {(loading ? (
                 <Spinner/>
             ) : (

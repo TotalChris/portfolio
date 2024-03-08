@@ -11,7 +11,7 @@ nav{
     }
 }
 
-a{
+a.navbar-link{
     font-size: 1rem;
     height: inherit;
     padding-inline: .5rem;
@@ -22,11 +22,11 @@ a{
     transition: border-bottom .2s ease-in-out;
 }
 
-a:has(svg){
+a.navbar-link:has(svg){
     padding-block: .25rem;
 }
 
-a.current{
+a.navbar-link.current{
     border-bottom: 1px solid var(--primary) !important;
 }
 

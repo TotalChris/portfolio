@@ -61,7 +61,7 @@ const Resume = () => {
                 <title>Chris Yates | Resume</title>
             </Helmet>
             <div className='flex flex-row'>
-                <h1 className='text-5xl pb-4' style={{fontFamily: 'Roboto Mono'}}>My Work</h1>
+                <h1 className='text-5xl pb-4'>My Work</h1>
             </div>
             <hr className='border-black dark:border-white'/>
             <div className='flex flex-col lg:flex-row pb-4 pt-4 gap-4'>
@@ -74,14 +74,14 @@ const Resume = () => {
             </div>
             <div className="hero bg-transparent border-black dark:border-white rounded-3xl cursor-pointer mb-12" style={{border: '1px solid'}}>
                     <div className="hero-content flex-col items-start w-full" style={{maxWidth: "unset"}}>
-                            <div className='flex flex-col sm:flex-row w-full justify-between items-center' style={{fontFamily: 'Roboto Mono'}}>
-                                <h1 className="text-2xl mb-2 sm:mb-0" style={{fontFamily: 'Roboto Mono'}}>Want To Work Together?</h1>
+                            <div className='flex flex-col sm:flex-row w-full justify-between items-center'>
+                                <h1 className="text-2xl mb-2 sm:mb-0">Want To Work Together?</h1>
                                 <Link to='/contact' className="mt-2 sm:mt-0 btn-wire w-full sm:w-auto">Let&apos;s Make Cool Stuff</Link>
                             </div>
                     </div>
                 </div>
             <div className='flex flex-row'>
-                <div className="flex flex-col pb-2" style={{fontFamily: 'Roboto Mono'}}>
+                <div className="flex flex-col pb-2">
                     <h1 className='text-5xl pb-2'>My Resume</h1>
                     <p className='text-lg italic'>Click a category tag to filter</p>
                 </div>
