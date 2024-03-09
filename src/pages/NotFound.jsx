@@ -1,14 +1,14 @@
-import {Link} from "react-router-dom";
-import PageScaffold from "../components/PageScaffold";
+
+import Notice from "../components/Notice";
 
 const NotFound = () => {
     return (
-        <PageScaffold>
-            <h1 className='text-5xl'>404</h1>
-            <div className='w-full h-screen'>
-                <p className='mt-2 font-bold'>There&apos;s no way forward.<br /><Link to='/' className='font-normal hover:underline'>Return home</Link>.</p>
-            </div>
-        </PageScaffold>
+        <Notice
+            title="404"
+            message="There&apos;s no way forward."
+            link="Return Home"
+            to="/"
+        />
     );
 };
 

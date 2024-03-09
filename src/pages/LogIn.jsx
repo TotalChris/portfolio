@@ -26,7 +26,11 @@ const LogIn = () => {
             await setPersistence(auth, browserLocalPersistence)
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             if (userCredential.user) {
-                navigate('/');
+                if(location.pathname !== '/log-in'){
+                    navigate(location.pathname)
+                } else {
+                    navigate('/');
+                }
             }
         } catch(e) {
             console.log(e);

@@ -8,6 +8,7 @@ import Spinner from "../components/Spinner";
 import PostListing from "../components/PostListing";
 import Tag from '../components/Tag';
 import {BsSortUpAlt, BsSortDown} from 'react-icons/bs'
+import PageScaffold from '../components/PageScaffold';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -67,13 +68,19 @@ const Profile = () => {
     }, [params.userId, filters])
 
     return (
-        <div className='pt-24 pb-36 mx-auto max-w-screen-col min-h-screen flex flex-col items-center gap-4'>
+        <PageScaffold extras="flex flex-col items-start gap-4">
             <div className="avatar w-52 h-52 rounded-full ring dark:ring-white ring-black ring-offset-base-100 ring-offset-2 overflow-hidden">
                 <img src={Chris} alt="avatar"/>
             </div>
             <p className='font-bold text-5xl'>Chris Yates</p>
             <p className='text-xl italic text-neutral-500'>Administrator</p>
-            <div className='flex flex-row w-full mx-8'>
+            {(auth.currentUser?.uid === params.userId  && (
+                <div className='flex flex-row gap-4 bg-base-200 w-full sm:w-auto dark:bg-black'>
+                    <button type='button' onClick={() => {navigate('/new-post')}} className='btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl grow hover:cursor-pointer'>Create Post</button>
+                    <button type='button' onClick={() => {navigate('/log-out')}} className='btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl hover:cursor-pointer'>Log Out</button>
+                </div>
+            ))}
+            <div className='flex flex-row w-full mt-8'>
                 <h1 className='text-4xl'>Blog Posts</h1>
                 <label className="swap swap-rotate ml-auto">
                     <input type="checkbox" ref={sortBox} onChange={() => {
@@ -99,13 +106,7 @@ const Profile = () => {
                     return <PostListing post={data} postId={id} handleFilterPush={addFilter} handleRemove={removePost} key={id}/>
                 })
             )}
-            {(auth.currentUser?.uid === params.userId  && (
-                <div className='flex flex-row gap-4 w-full fixed bottom-0 p-4 bg-base-200 dark:bg-black'>
-                    <button type='button' onClick={() => {navigate('/new-post')}} className='btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl grow hover:cursor-pointer'>Create Post</button>
-                    <button type='button' onClick={() => {navigate('/log-out')}} className='btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl grow hover:cursor-pointer'>Log Out</button>
-                </div>
-            ))}
-        </div>
+        </PageScaffold>
     );
 };
 

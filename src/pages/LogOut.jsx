@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {getAuth} from "firebase/auth";
-import PageScaffold from '../components/PageScaffold';
+import Notice from '../components/Notice';
 const LogOut = () => {
 
     const auth = getAuth();
@@ -10,17 +10,17 @@ const LogOut = () => {
     useEffect(() => {
         setTimeout(() => {
             auth.signOut().then();
-            navigate('/log-in')
+            navigate('/')
         }, 3000)
     }, [auth, navigate])
 
     return (
-        <PageScaffold>
-            <h1 className='text-5xl' >Signing Out</h1>
-            <div className='w-full h-screen pt-6'>
-                <p className='font-bold'>you will be redirected...</p>
-            </div>
-        </PageScaffold>
+        <Notice
+            title="Signing Out"
+            message="You will be redirected..."
+            link="Redirect Now"
+            to="/"
+        />
     );
 };
 

@@ -8,6 +8,7 @@ import jt from "../assets/projectAssets/jt.png"
 import {useNavigate, Link} from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import ProjectCard from '../components/ProjectCard';
+import PageScaffold from '../components/PageScaffold';
 
 const Resume = () => {
 
@@ -56,7 +57,7 @@ const Resume = () => {
     }, [fetchJobs])
 
     return (
-        <div className='pt-24 px-4 mx-auto max-w-screen col:max-w-screen-col overflow-x-hidden'>
+        <PageScaffold extras='overflow-x-hidden'>
             <Helmet>
                 <title>Chris Yates | Resume</title>
             </Helmet>
@@ -110,7 +111,7 @@ const Resume = () => {
                     return <JobEntry jobData={job} handleFilterPush={addFilter} key={i}/>
                 })
             )}
-        </div>
+        </PageScaffold>
     );
 };
 

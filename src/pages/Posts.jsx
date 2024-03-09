@@ -6,6 +6,7 @@ import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import PostListing from "../components/PostListing";
 import Tag from "../components/Tag";
 import { Helmet } from 'react-helmet';
+import PageScaffold from '../components/PageScaffold';
 
 const Posts = () => {
 
@@ -64,7 +65,7 @@ const Posts = () => {
     }
 
     return (
-        <div className='pt-24 px-4 mx-auto max-w-screen-col'>
+        <PageScaffold>
             <Helmet>
                 <title>Chris Yates | Blog Posts</title>
             </Helmet>
@@ -101,7 +102,7 @@ const Posts = () => {
                         }
                     </div>
             )}
-        </div>
+        </PageScaffold>
     );
 };
 

@@ -1,6 +1,6 @@
-export default function PageScaffold({ children }) {
+export default function PageScaffold({ children, extras }) {
   return (
-    <div className="mt-24 mx-4 lg:mx-auto px-4 lg:px-8 min-h-screen max-w-screen-col">
+    <div className={ `mx-4 lg:mx-auto pt-24 lg:px-8 min-h-full max-w-screen col:max-w-screen-col ${extras}` }>
         {children}    
     </div>
   )

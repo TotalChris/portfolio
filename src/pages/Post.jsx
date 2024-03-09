@@ -6,6 +6,7 @@ import Spinner from "../components/Spinner";
 import ReactMarkdown from "react-markdown";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import Chris from "../assets/carousel/Chris-07.webp";
+import PageScaffold from "../components/PageScaffold";
 
 
 const Post = () => {
@@ -36,7 +37,8 @@ const Post = () => {
 
     const helmetContext = {};
     return (
-        <div className='pt-24 flex flex-col items-center gap-6 lg:mx-auto mx-4 px-2 max-w-screen-col'>
+        <PageScaffold>
+        <div className='flex flex-col items-center gap-6'>
             {(loading ? (
                 <Spinner/>
             ) : (
@@ -85,6 +87,7 @@ const Post = () => {
             ) )}
 
         </div>
+        </PageScaffold>
     );
 };
 
