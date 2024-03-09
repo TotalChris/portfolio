@@ -1,4 +1,4 @@
-# My Website
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3eeeacbd-e30a-48d4-8c96-82a7aefabdcf/deploy-status)](https://app.netlify.com/sites/chrisyates/deploys)
+# Portfolio (chrisyates.dev)
+![Vercel Deploy](https://therealsujitk-vercel-badge.vercel.app/?app=my-site-totalchris&style=for-the-badge&label=)
 
-My new [portfolio](https://totalchris.com/), built using React and hosted on Netlify
+My new [portfolio](https://chrisyates.dev/), built using React and hosted on Vercel.
