@@ -23,6 +23,7 @@ import Posts from "./pages/Posts";
 import Profile from "./pages/Profile";
 import TitleNotes from "./pages/TitleNotes";
 import {createRef} from "react";
+import { AuthProvider } from './context/AuthProvider';
 
 function NavFrame() {
     const location = useLocation();
@@ -30,22 +31,24 @@ function NavFrame() {
     const { nodeRef } = routes.find((route) => route.path === location.pathname) ?? {}
     return (
         <div className='app bg-white-200 dark:bg-black text-black dark:text-white min-h-screen'>
-            <Navbar />
-            <SwitchTransition>
-                <CSSTransition
-                    key={location.pathname}
-                    nodeRef={nodeRef}
-                    timeout={500}
-                    classNames="route"
-                    unmountOnExit
-                    >
-                    {(state) => (
-                        <div ref={nodeRef} className="route">
-                            {outlet}
-                        </div>
-                    )}
-				</CSSTransition>
-            </SwitchTransition>
+            <AuthProvider>
+                <Navbar />
+                <SwitchTransition>
+                    <CSSTransition
+                        key={location.pathname}
+                        nodeRef={nodeRef}
+                        timeout={500}
+                        classNames="route"
+                        unmountOnExit
+                        >
+                        {(state) => (
+                            <div ref={nodeRef} className="route">
+                                {outlet}
+                            </div>
+                        )}
+                    </CSSTransition>
+                </SwitchTransition>
+            </AuthProvider>
         </div>
         )
 }
@@ -58,10 +61,10 @@ const routes = [
     {name: 'Contact', ref: createRef(), path: '/contact', Component: Contact},
     {name: 'Thanks', ref: createRef(), path: '/contact/thank-you', Component: ThankYou},
     {name: 'Log In', ref: createRef(), path: '/log-in', Component: LogIn},
-    {name: 'Log Out', ref: createRef(), path: '/log-out', Component: PrivateRoute, children: [ {path: '/log-out', Component: LogOut} ]},
-    {name: 'Profile', ref: createRef(), path: '/profile/:userId', Component: Profile},
-    {name: 'New Post', ref: createRef(), path: '/new-post', Component: PrivateRoute, children: [ {path: '/new-post', Component: PostForm} ]},
-    {name: 'Posts', ref: createRef(), path: '/posts', Component: Posts},
+    {name: 'Log Out', ref: createRef(), path: '/log-out', Component: PrivateRoute, children: [{path: '/log-out', Component: LogOut}]},
+    {name: 'Profile', ref: createRef(), path: '/profile/:userId', Component: PrivateRoute, children: [{path: '/profile/:userId', Component: Profile}]},
+    {name: 'New Post', ref: createRef(), path: '/new-post', Component: PrivateRoute, children: [{ path: '/new-post', Component: PostForm }]},
+    {name: 'Posts', ref: createRef(), path: '/posts', Component: PrivateRoute, children: [{ path: '/posts', Component: Posts }]},
     {name: 'Post', ref: createRef(), path: '/posts/:postId', Component: Post},
     {name: 'Title Notes', ref: createRef(), path: '/title-notes', Component: TitleNotes},
     {name: 'Title Notes App', ref: createRef(), path: '/title', Component: () => <Redirect to='https://titlenotes.netlify.app/'></Redirect>},
