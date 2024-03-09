@@ -9,6 +9,7 @@ import Spinner from "../components/Spinner";
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
+import PageScaffold from '../components/PageScaffold';
 
 const PostForm = () => {
     const navigate = useNavigate();
@@ -96,7 +97,7 @@ const PostForm = () => {
     }
 
     return (
-        <div className='pt-24 px-2 mx-auto max-w-screen-col'>
+        <PageScaffold>
             <h1 className='text-5xl'>Write a Post</h1>
             <form className='py-12 flex flex-col' onKeyDown={handleEnter} onSubmit={handleSubmit} ref={formRef}>
                 <div className={'collapse group ' + (title.length > 0 && 'collapse-open')} style={{borderRadius: 0}}>
@@ -129,7 +130,7 @@ const PostForm = () => {
                     {loading ? <Spinner /> : 'Submit'}
                 </button>
             </form>
-        </div>
+        </PageScaffold>
     );
 };
 
