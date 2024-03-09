@@ -1,13 +1,14 @@
-import {Link} from "react-router-dom";
+
+import Notice from "../components/Notice";
 
 const NotFound = () => {
     return (
-        <div className='notFound pt-24 mx-auto max-w-screen-col'>
-            <h1 className='text-5xl'>404</h1>
-            <div className='w-full h-screen'>
-                <p className='mt-2 font-bold'>There&apos;s no way forward.<br /><Link to='/' className='font-normal hover:underline'>Return home</Link>.</p>
-            </div>
-        </div>
+        <Notice
+            title="404"
+            message="There&apos;s no way forward."
+            link="Return Home"
+            to="/"
+        />
     );
 };
 

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from 'firebase/auth'
+import PageScaffold from '../components/PageScaffold';
 const LogIn = () => {
 
     const navigate = useNavigate();
@@ -25,7 +26,11 @@ const LogIn = () => {
             await setPersistence(auth, browserLocalPersistence)
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             if (userCredential.user) {
-                navigate('/');
+                if(location.pathname !== '/log-in'){
+                    navigate(location.pathname)
+                } else {
+                    navigate('/');
+                }
             }
         } catch(e) {
             console.log(e);
@@ -34,7 +39,7 @@ const LogIn = () => {
     }
 
     return (
-        <div className='pt-24 px-4 min-h-screen mx-auto max-w-screen-col'>
+        <PageScaffold>
             <h1 className='text-5xl'>Admin Login</h1>
             <form className={ 'w-full collapse ' + (error ? 'collapse-open' : '') } onSubmit={handleSubmit}>
                 <div className='flex flex-wrap mt-10' style={{gap: '8px'}} >
@@ -52,7 +57,7 @@ const LogIn = () => {
                     there was an error with your information. try again.
                 </div>
             </form>
-        </div>
+        </PageScaffold>
     );
 };
 

@@ -1,13 +1,13 @@
-import {Link} from "react-router-dom";
+import Notice from "../components/Notice";
 
 const Construction = () => {
     return (
-        <div className='mx-auto max-w-screen-col pt-24 px-4 '>
-            <h1 className='text-5xl'>This room is empty...</h1>
-            <div className='w-full h-screen'>
-                <p className='mt-2 font-bold'>I&apos;m moving in as we speak. Come back soon!&nbsp;<br /><Link to='/' className='font-normal hover:underline'>Return home</Link>.</p>
-            </div>
-        </div>
+        <Notice 
+            title="This room is empty..." 
+            message="I&apos;m moving in as we speak. Come back soon!"
+            link="Return Home"
+            to="/"
+        />
     );
 };
 

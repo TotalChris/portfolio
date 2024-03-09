@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import PageScaffold from '../components/PageScaffold';
 const Contact = () => {
 
     const navigate = useNavigate()
@@ -43,7 +44,7 @@ const Contact = () => {
     }
 
     return (
-        <div className='pt-24 mx-auto px-4 pb-4 max-w-screen-col'>
+        <PageScaffold>
             <Helmet>
                 <title>Chris Yates | Contact</title>
             </Helmet>
@@ -71,7 +72,7 @@ const Contact = () => {
                     </button>
                 </div>
             </form>
-        </div>
+        </PageScaffold>
     );
 };
 
