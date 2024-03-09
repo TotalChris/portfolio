@@ -63,20 +63,22 @@ const Post = () => {
                     <img src={post.header} className='w-full h-96 object-cover rounded-3xl text-left' alt='post'/>
                     <h1 className='text-5xl relative l-0 w-full'>{post.title}</h1>
                     <blockquote className="text-xl border-l-4 pl-4 border-neutral-500 text-neutral-600 dark:text-neutral-400 w-full">{post.subtitle}</blockquote>
-                    <div className='flex flex-row w-full items-center'>
-                        <Link className="avatar p-2 pr-5 hover:cursor-pointer" to={`/profile/${post.userRef}`}>
-                            <div className="w-8 h-8 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-white ring-black">
-                                <img src={Chris} alt="avatar"/>
-                            </div>
-                        </Link>
-                        <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
+                    <div className="w-full h-auto flex flex-col lg:flex-row">
+                        <div className='flex flex-row w-full items-center lg:w-auto lg:mr-2'>
+                            <Link className="avatar p-2 pr-5 hover:cursor-pointer" to={`/profile/${post.userRef}`}>
+                                <div className="w-8 h-8 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-white ring-black">
+                                    <img src={Chris} alt="avatar"/>
+                                </div>
+                            </Link>
+                            <p className='text-md w-full text-neutral-500'>Posted by Chris Yates on {dateFormatter.format(post.timestamp.toDate())}</p>
+                        </div>
+                        <div className='flex flex-row flex-wrap gap-2 w-full lg:w-1/2 py-4'>
+                            {post.tags && post.tags.map((tag, i) => {
+                                return <div key={i} className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
+                            })}
+                        </div>
                     </div>
-                    <div className='flex flex-row flex-wrap gap-2 w-full'>
-                        {post.tags && post.tags.map((tag, i) => {
-                            return <div key={i} className="badge badge-outline min-w-max p-3 rounded-full text-black border-black dark:text-white dark:border-white hover:cursor-pointer">{tag}</div>
-                        })}
-                    </div>
-                    <hr className='border-black dark:border-white' style={{width: '100%'}}/>
+                    
                     <ReactMarkdown className='prose prose-lg dark:!prose-invert max-w-full mb-16'>{post.content}</ReactMarkdown>
                     </HelmetProvider>
                 </>

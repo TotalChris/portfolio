@@ -63,7 +63,6 @@ const Resume = () => {
             <div className='flex flex-row'>
                 <h1 className='text-5xl pb-4'>My Work</h1>
             </div>
-            <hr className='border-black dark:border-white'/>
             <div className='flex flex-col lg:flex-row pb-4 pt-4 gap-4'>
                 <ProjectCard name="JT Hair" description="Site for JT Hair of Brighton, MI" logoStyle={{fontFamily: "JT", fontWeight: 'lighter'}} icon={jt} date="March 2023">
                     <a href='https://jthaircare.com/' className="mt-2 sm:mt-0 btn-wire">Visit Site</a>
@@ -96,9 +95,6 @@ const Resume = () => {
                     <BsSortDown className='swap-off fill-black dark:fill-white w-12 h-12' />
                 </label>
             </div>
-
-            <hr className='border-black dark:border-white'/>
-
             {(filters.length > 0 &&
                 <div className='flex flex-row my-2 gap-2'>
                     <p className='text-lg mr-2'>Filters:</p>
