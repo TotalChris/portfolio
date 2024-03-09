@@ -81,7 +81,6 @@ const Posts = () => {
                     <BsSortDown className='swap-off fill-black dark:fill-white w-12 h-12' />
                 </label>
             </div>
-            <hr className='border-black dark:border-white'/>
             {(filters.length > 0 &&
                 <div className='flex flex-row mt-8 gap-2'>
                     <p className='text-lg mr-2'>Filters:</p>
