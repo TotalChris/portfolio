@@ -33,7 +33,7 @@ const Posts = () => {
         if(filters.length > 0){
             filterStack.push(where('tags', 'array-contains-any', filters))
         }
-        if(currentUser === null){
+        if(currentUser === null || currentUser === undefined){
             filterStack.push(where('isPrivate', "==", false))
         }
         const postsQuery = await query(postsRef, ...filterStack);
