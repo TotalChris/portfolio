@@ -26,3 +26,7 @@
 	opacity: 0;
 	transition: filter .25s, opacity .25s, transform .25s;
 }
+
+body:has(.route-enter-active), body:has(.route-exit-active){
+	overflow: hidden;
+}
