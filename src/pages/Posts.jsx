@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState, useContext} from 'react';
 import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
 import Spinner from "./Spinner";
 import {db} from "../firebase.config";
@@ -7,6 +7,7 @@ import PostListing from "../components/PostListing";
 import Tag from "../components/Tag";
 import { Helmet } from 'react-helmet';
 import PageScaffold from '../components/PageScaffold';
+import { AuthContext } from '../context/AuthProvider';
 
 const Posts = () => {
 
@@ -14,6 +15,7 @@ const Posts = () => {
     const [loading, setLoading] = useState(true);
     const [filters, setFilters] = useState([]);
     const sortBox = useRef();
+    const {currentUser, authLoaded} = useContext(AuthContext);
 
     const addFilter = (text) => {
         if(!filters.includes(text)){
@@ -27,12 +29,15 @@ const Posts = () => {
         setLoading(true);
         const sortType = (sortBox.current.checked ? 'asc' :  'desc')
         const postsRef = collection(db, 'posts');
-        let postsQuery;
+        let filterStack = [orderBy('timestamp', sortType)]
         if(filters.length > 0){
-            postsQuery = await query(postsRef, orderBy('timestamp', sortType), where('tags', 'array-contains-any', filters));
-        } else {
-            postsQuery = await query(postsRef, orderBy('timestamp', sortType));
+            filterStack.push(where('tags', 'array-contains-any', filters))
         }
+        if(currentUser === null){
+            filterStack.push(where('isPrivate', "==", false))
+        }
+        console.log(filterStack)
+        const postsQuery = await query(postsRef, ...filterStack);
         const postsSnap = await getDocs(postsQuery);
 
         const posts = []
@@ -49,8 +54,10 @@ const Posts = () => {
     }, [filters])
 
     useEffect(() => {
-        fetchPosts().then();
-    }, [fetchPosts])
+        if(authLoaded){
+            fetchPosts().then();
+        }
+    }, [fetchPosts, authLoaded])
 
     const removeFilter = (filter) => {
         setFilters((prevState) => {
