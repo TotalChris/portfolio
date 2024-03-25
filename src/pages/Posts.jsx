@@ -36,7 +36,6 @@ const Posts = () => {
         if(currentUser === null){
             filterStack.push(where('isPrivate', "==", false))
         }
-        console.log(filterStack)
         const postsQuery = await query(postsRef, ...filterStack);
         const postsSnap = await getDocs(postsQuery);
 
