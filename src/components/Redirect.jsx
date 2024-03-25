@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import Spinner from "./Spinner";
+import {useEffect} from 'react';
+import Spinner from "../pages/Spinner";
 
 const Redirect = ({to}) => {
 

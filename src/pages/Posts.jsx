@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {collection, query, getDocs, orderBy, where} from 'firebase/firestore'
-import Spinner from "../components/Spinner";
+import Spinner from "./Spinner";
 import {db} from "../firebase.config";
 import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import PostListing from "../components/PostListing";

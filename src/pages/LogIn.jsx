@@ -1,15 +1,29 @@
-import {useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
 import {getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from 'firebase/auth'
 import PageScaffold from '../components/PageScaffold';
+import { AuthContext } from '../context/AuthProvider';
 const LogIn = () => {
 
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({email: '', password: ''});
     const location = useLocation();
+
+    const [formData, setFormData] = useState({email: '', password: ''});
     const [error, setError] = useState(false);
 
+    const {currentUser, authLoaded} = useContext(AuthContext)
+
     const {email, password} = formData;
+
+    useEffect(() => {
+        if(authLoaded && currentUser){
+            if(location.pathname !== '/log-in'){
+                navigate(location.pathname)
+            } else {
+                navigate('/');
+            }
+        }
+    }, [authLoaded, currentUser])
 
     const handleChange = (e) => {
         setFormData((prevState) => {
@@ -19,20 +33,14 @@ const LogIn = () => {
             }
         })
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(false);
         try{
             const auth = getAuth();
             await setPersistence(auth, browserLocalPersistence)
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            if (userCredential.user) {
-                if(location.pathname !== '/log-in'){
-                    navigate(location.pathname)
-                } else {
-                    navigate('/');
-                }
-            }
+            await signInWithEmailAndPassword(auth, email, password);
         } catch(e) {
             console.log(e);
             setError(true);

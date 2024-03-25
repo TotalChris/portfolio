@@ -64,7 +64,7 @@ const routes = [
     {name: 'Log Out', ref: createRef(), path: '/log-out', Component: PrivateRoute, children: [{path: '/log-out', Component: LogOut}]},
     {name: 'Profile', ref: createRef(), path: '/profile/:userId', Component: PrivateRoute, children: [{path: '/profile/:userId', Component: Profile}]},
     {name: 'New Post', ref: createRef(), path: '/new-post', Component: PrivateRoute, children: [{ path: '/new-post', Component: PostForm }]},
-    {name: 'Posts', ref: createRef(), path: '/posts', Component: PrivateRoute, children: [{ path: '/posts', Component: Posts }]},
+    {name: 'Posts', ref: createRef(), path: '/posts', Component: Posts },
     {name: 'Post', ref: createRef(), path: '/posts/:postId', Component: Post},
     {name: 'Title Notes', ref: createRef(), path: '/title-notes', Component: TitleNotes},
     {name: 'Title Notes App', ref: createRef(), path: '/title', Component: () => <Redirect to='https://titlenotes.netlify.app/'></Redirect>},

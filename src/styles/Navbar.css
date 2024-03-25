@@ -12,14 +12,21 @@ nav{
 }
 
 a.navbar-link{
-    font-size: 1rem;
     height: inherit;
-    padding-inline: .5rem;
-    align-content: center;
+    margin-inline: .25rem;
+    align-content: flex-start;
     color: var(--primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom .2s ease-in-out;
+}
+
+a.navbar-link:first-child{
+    margin-left: 0;
+}
+
+a.navbar-link:last-child{
+    margin-right: 0;
 }
 
 a.navbar-link:has(svg){
