@@ -2,7 +2,7 @@ import {useEffect, useState, useContext} from 'react';
 import {useParams, useNavigate, Link} from "react-router-dom";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase.config";
-import Spinner from "../components/Spinner";
+import Spinner from "./Spinner";
 import ReactMarkdown from "react-markdown";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import Chris from "../assets/carousel/Chris-07.webp";
@@ -14,7 +14,7 @@ const Post = () => {
 
     const params = useParams();
     const navigate = useNavigate();
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser, authLoaded} = useContext(AuthContext)
 
     const [loading, setLoading] = useState(true);
     const [post, setPost] = useState({});
@@ -22,18 +22,19 @@ const Post = () => {
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
 
     useEffect(() => {
-        fetchPost().then();
+        if(authLoaded){
+            fetchPost().then();
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [authLoaded])
 
     const fetchPost = async () => {
-
         const postRef = await getDoc(doc(db, 'posts', params.postId));
-        if(postRef.exists() && (!postRef.data().isPrivate || (postRef.data().isPrivate && currentUser))){
+        if(postRef.exists() && (!postRef.data().isPrivate || (postRef.data().isPrivate && (currentUser)))){
             setPost(postRef.data());
             setLoading(false);
         } else {
-            navigate('/not-found')
+            navigate('/not-found');
         }
     }
 

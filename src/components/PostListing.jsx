@@ -5,7 +5,8 @@ import Tag from "./Tag";
 import {getAuth} from 'firebase/auth';
 import {doc, deleteDoc, updateDoc} from 'firebase/firestore'
 import {BsGlobe, BsPerson} from 'react-icons/bs'
-import Spinner from './Spinner'
+import Loading from "../components/Loading"
+
 const PostListing = ({post, postId, handleFilterPush, handleRemove}) => {
 
     const dateFormatter = Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: "numeric"})
@@ -42,8 +43,8 @@ const PostListing = ({post, postId, handleFilterPush, handleRemove}) => {
                 <div className='flex flex-row justify-between text-md text-neutral-500'>{dateFormatter.format(post.timestamp.toDate())}{post.isPrivate?<BsPerson className="text-xl"></BsPerson>:<BsGlobe className="text-xl"></BsGlobe>}</div>
             </div>
             {getAuth().currentUser ? <div className='flex flex-row mt-4 w-full justify-between'>
-                <button type="button" onClick={changePostVisibility} className="mr-2 btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white rounded-xl hover:cursor-pointer border-none w-44 grow">{pendingChange ? <Spinner /> : 'Make ' + (post.isPrivate ? 'Public' : 'Private' )}</button>
-                <button type="button" onClick={deletePost} className="ml-2 btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl hover:cursor-pointer w-44 grow">{pendingDelete ? <Spinner /> : 'Delete'}</button>
+                <button type="button" onClick={changePostVisibility} className="mr-2 btn btn-primary dark:text-black dark:bg-white dark:hover:text-black dark:hover:bg-white rounded-xl hover:cursor-pointer border-none grow">{pendingChange ? <Loading /> : 'Make ' + (post.isPrivate ? 'Public' : 'Private' )}</button>
+                <button type="button" onClick={deletePost} className="ml-2 btn btn-outline dark:text-white dark:border-white dark:hover:text-black dark:hover:bg-white rounded-xl hover:cursor-pointer grow">{pendingDelete ? <Loading /> : 'Delete'}</button>
             </div> : <></>}
         </div>
     );

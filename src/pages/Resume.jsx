@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import JobEntry from "../components/JobEntry";
-import Spinner from "../components/Spinner";
+import Spinner from "./Spinner";
 import {BsSortDown, BsSortUpAlt} from "react-icons/bs";
 import Tag from "../components/Tag";
 import tn from "../assets/projectAssets/tn.png"

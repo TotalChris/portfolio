@@ -5,7 +5,7 @@ import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {db} from "../firebase.config";
 import {useNavigate} from "react-router-dom";
-import Spinner from "../components/Spinner";
+import Loading from "../components/Loading";
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
@@ -127,7 +127,7 @@ const PostForm = () => {
                     </div>
                 ) )}
                 <button type='submit' className={'ml-auto btn-wire mt-8 min-h-fit' + (loading && 'btn-disabled')}>
-                    {loading ? <Spinner /> : 'Submit'}
+                    {loading ? <Loading /> : 'Submit'}
                 </button>
             </form>
         </PageScaffold>

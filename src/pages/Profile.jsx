@@ -4,7 +4,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {db} from '../firebase.config'
 import {getAuth} from "firebase/auth";
 import {collection, getDocs, query, where, orderBy} from "firebase/firestore";
-import Spinner from "../components/Spinner";
+import Spinner from "./Spinner";
 import PostListing from "../components/PostListing";
 import Tag from '../components/Tag';
 import {BsSortUpAlt, BsSortDown} from 'react-icons/bs'

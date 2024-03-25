@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import {useNavigate} from "react-router-dom";
-import Spinner from "../components/Spinner";
+import Loading from "../components/Loading";
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import PageScaffold from '../components/PageScaffold';
@@ -68,7 +68,7 @@ const Contact = () => {
                         Your information isn&apos;t complete. Try again.
                     </div>
                     <button type='submit' disabled={formState.submitting} className='ml-auto btn-wire'>
-                        {formState.submitting ? <Spinner /> : 'Send'}
+                        {formState.submitting ? <Loading /> : 'Send'}
                     </button>
                 </div>
             </form>
