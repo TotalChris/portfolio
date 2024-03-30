@@ -1,6 +1,5 @@
-import {useEffect, useRef, useState} from 'react';
+import {useContext, useEffect, useRef, useState} from 'react';
 import TagInput from "../components/TagInput";
-import {getAuth, onAuthStateChanged} from "firebase/auth";
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {db} from "../firebase.config";
@@ -10,33 +9,18 @@ import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import PageScaffold from '../components/PageScaffold';
+import { AuthContext } from '../context/AuthProvider'
+import TabSplit from '../components/TabSplit';
 
 const PostForm = () => {
+    const {currentUser, authLoaded} = useContext(AuthContext);
     const navigate = useNavigate();
-    const auth = getAuth();
-    const isMounted = useRef(true);
     const [loading, setLoading] = useState(false);
-    const [useEditor, setUseEditor] = useState(true);
     const parser = new MarkdownIt();
     const formRef = useRef();
     const MdEditorRef = useRef();
-
-    useEffect(() => {
-        if (isMounted) {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    setFormData({...formData, userRef: user.uid})
-                } else {
-                    navigate('/log-in')
-                }
-            })
-        }
-        return () => {
-            isMounted.current = false;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isMounted]);
-
+    const storage = getStorage();
+    const [editMode, setEditMode] = useState('editor');
     const [formData, setFormData] = useState({
         title: '',
         subtitle: '',
@@ -49,7 +33,15 @@ const PostForm = () => {
 
     const {title, subtitle, headerImg} = formData;
 
-    const storage = getStorage();
+    useEffect(() => {
+        if(authLoaded){
+            if (currentUser) {
+                setFormData({...formData, userRef: currentUser.uid})
+            } else {
+                navigate('/log-in')
+            } 
+        }
+    }, [authLoaded, currentUser]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,7 +52,7 @@ const PostForm = () => {
             formDataCopy.header = await getDownloadURL(snapshot.ref);
             delete formDataCopy.headerImg;
 
-            if(!useEditor){
+            if(editMode === "upload"){
                formDataCopy.content = await formDataCopy.markdownFile.text();
             }
             delete formDataCopy.markdownFile;
@@ -114,18 +106,25 @@ const PostForm = () => {
                     <input type="checkbox" className='checkbox checkbox-lg border-white [--chkbg:white]' name='isPrivate' id='isPrivate' onChange={handleChange}/>
                     <label htmlFor="isPrivate" className='text-xl'>Make Private</label>
                 </div>
-                <div className="tabs tabs-bordered w-full mt-8 mb-2">
-                    <button type="button" className={"tab dark:text-white border-black h-12 " + (useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(true)}>Manual Input</button>
-                    <button type="button" className={"tab dark:text-white border-black h-12 " + (!useEditor && "tab-active dark:!border-white")} onClick={() => setUseEditor(false)}>File Upload</button>
-                </div>
-                {(useEditor ? (
-                    <MdEditor ref={MdEditorRef} style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
-                ) : (
-                    <div className='flex flex-col items-center mt-8'>
-                        <label htmlFor="markdownFile" className='text-xl w-full'>Markdown or Text File:</label>
-                        <input type="file" name="markdownFile" accept=".md,.txt" onChange={handleChange} id='markdownFile' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none w-full mt-4" />
-                    </div>
-                ) )}
+                <TabSplit stateArray={[editMode, setEditMode]} options={[
+                    {
+                        key: 'editor', 
+                        name: 'Manual Input',
+                        child: (
+                            <MdEditor ref={MdEditorRef} style={{ width: '100%', height: '500px' }} renderHTML={text => parser.render(text)} onChange={handleEditorChange} />
+                        )
+                    },
+                    {
+                        key: 'upload',
+                        name: 'File Upload',
+                        child: (
+                            <div className='flex flex-col items-center mt-8'>
+                                <label htmlFor="markdownFile" className='text-xl w-full'>Markdown or Text File:</label>
+                                <input type="file" name="markdownFile" accept=".md,.txt" onChange={handleChange} id='markdownFile' className="file-input file-input-ghost grow border-black dark:border-white outline-none focus:outline-none w-full mt-4" />
+                            </div> 
+                        )
+                    }
+                ]} />
                 <button type='submit' className={'ml-auto btn-wire mt-8 min-h-fit' + (loading && 'btn-disabled')}>
                     {loading ? <Loading /> : 'Submit'}
                 </button>
