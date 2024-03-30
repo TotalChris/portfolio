@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from 'firebase/auth'
 import PageScaffold from '../components/PageScaffold';
 import { AuthContext } from '../context/AuthProvider';
+import Loading from '../components/Loading';
 const LogIn = () => {
 
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ const LogIn = () => {
 
     const [formData, setFormData] = useState({email: '', password: ''});
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const {currentUser, authLoaded} = useContext(AuthContext)
 
@@ -37,11 +39,14 @@ const LogIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(false);
+        setLoading(true);
         try{
             const auth = getAuth();
             await setPersistence(auth, browserLocalPersistence)
             await signInWithEmailAndPassword(auth, email, password);
+            setLoading(false);
         } catch(e) {
+            setLoading(false);
             console.log(e);
             setError(true);
         }
@@ -59,7 +64,13 @@ const LogIn = () => {
                         <div className="form-control grow">
                             <input type="password" id="password" value={password} onChange={handleChange} placeholder="Password" className="input bg-transparent border-black text-black dark:border-white dark:text-white focus:outline-none focus:border-black focus:dark:border-white rounded-2xl" />
                         </div>
-                        <button className="btn-wire mr-auto">Log In</button>
+                        <button className="btn-wire mr-auto">
+                            { loading ? (
+                                <Loading />
+                            ) : (
+                                "Log In"
+                            )}
+                        </button>
                     </div>
                 </div>
                 <div className='collapse-content text-red-700 my-4 px-0'>
