@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const TabSplit = ({ options }) => {
+const TabSplit = ({ options, stateArray }) => {
 
     if(!options[0]?.key && !options[0]?.child){
         return <p className="text-red font-bold">ERR: The Options property passed to TabSplit is malformed or is missing key/child pairs.</p>;
     }
 
-    const [selected, setSelected] = useState(options[0].key)
+    const [selected, setSelected] = stateArray
 
     return (
         <>
