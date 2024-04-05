@@ -50,7 +50,7 @@ const Contact = () => {
             </Helmet>
             <h1 className='text-5xl'>Contact Me</h1>
             <form method="POST" onSubmit={handleSubmit} onFocus={() => {setError(false)}} className='w-full'>
-            <p className='text-xl mt-8'>Feel free to reach out to me with any potential projects or employment opportunites that you think would fit my skill set!</p><br/><p> If you want more info about my existing work, check out my <Link to='/resume' className='underline hover:cursor-pointer'>resume</Link>.</p>
+            <p className='text-xl mt-8'>Feel free to reach out to me with any potential projects or independent opportunites that you think would fit my skill set!</p><br/><p> If you want more info about my existing work, check out my <Link to='/resume' className='underline hover:cursor-pointer'>resume</Link>.</p>
 
                 <input type="hidden" name="form-name" value="contact" />
                 <div className='flex flex-row gap-4 mt-8 w-full flex-wrap'>
