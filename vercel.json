@@ -1,8 +1,16 @@
 {
 	"rewrites": [
 		{
-			"source": "/actor",
-			"destination": "/api/activitypub/actor"
+			"source": "/public",
+			"destination": "/public"
+		},
+		{
+			"source": "/i",
+			"destination": "/api/activitypub/i"
+		},
+		{
+			"source": "/.well-known/webfinger",
+			"destination": "/api/activitypub/webfinger"
 		},
 		{
 			"source": "/(.*)",
