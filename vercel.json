@@ -1,6 +1,10 @@
 {
 	"rewrites": [
 		{
+			"source": "/actor",
+			"destination": "/api/activitypub/actor"
+		},
+		{
 			"source": "/(.*)",
 			"destination": "/"
 		}
