@@ -34,7 +34,7 @@ const JobEntry = ({ jobData, handleFilterPush }) => {
           </span>
         </h1>
         <h1 className="hidden text-right font-bold text-neutral-500 md:block">
-          {start + " - " + (isOngoing ? "ongoing" : end)}
+          {start + " - " + (isOngoing ? "Ongoing" : end)}
         </h1>
       </div>
       <div className="flex flex-row">
@@ -46,7 +46,7 @@ const JobEntry = ({ jobData, handleFilterPush }) => {
         </h1>
       </div>
       <h1 className="block font-bold text-neutral-500 md:hidden">
-        {start + " - " + (isOngoing ? "ongoing" : end)}
+        {start + " - " + (isOngoing ? "Ongoing" : end)}
       </h1>
       <h1 className="block text-neutral-500 md:hidden">{location}</h1>
       <div className="tag-container relative -left-4 mt-4 flex lg:w-full w-screen flex-row gap-2 overflow-x-scroll px-4">
