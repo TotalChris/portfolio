@@ -9,7 +9,7 @@ export default function (req, res) {
       "following": "https://chrisyates.dev/following",
       "followers": "https://chrisyates.dev/followers",
       "inbox": "https://chrisyates.dev/inbox",
-      "preferredUsername": "chrisyates",
+      "preferredUsername": "chris",
       "name": "Chris Yates",
       "summary": "I am a web developer working at Lake Trust Credit Union in Michigan",
       "icon": [
