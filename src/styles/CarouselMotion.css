@@ -1,4 +1,51 @@
 @keyframes carousel {
-    0% {transform: translateX(calc(216px * 6.5));}
-    100% {transform: translateX(calc(-216px * 6.5));}
+    0% {
+        transform: translateX(calc(216px * 6.5));
+    }
+    100% {
+        transform: translateX(calc(-216px * 6.5));
+    }
+}
+
+@keyframes carousel-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.photo-carousel {
+    view-transition-name: carousel;
+}
+
+::view-transition-group(carousel) {
+    animation-timing-function: ease;
+    animation-duration: 0.25s;
+}
+
+::view-transition-image-pair(carousel) {
+    animation-timing-function: ease;
+    animation-duration: 0.25s;
+    animation-name: carousel-fade-in;
+}
+
+::view-transition-new(carousel) {
+    animation-name: carousel-fade-in;
+}
+
+::view-transition-old(carousel) {
+    animation-name: carousel-fade-out;
 }

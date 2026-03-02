@@ -11,6 +11,10 @@
     animation: 0.25s ease-in-out both 0.25s blur-in;
 }
 
+.photo-carousel {
+    view-transition-name: none;
+}
+
 @keyframes blur-in {
     from {
         filter: blur(20px);
