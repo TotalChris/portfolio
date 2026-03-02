@@ -1,9 +1,7 @@
 import "./App.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useOutlet,
-} from "react-router-dom";
+import { createBrowserRouter, useOutlet } from "react-router";
+import { RouterProvider } from "react-router/dom";
+
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";

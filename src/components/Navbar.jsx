@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 import "../styles/Navbar.css";
 import { BsGithub } from "react-icons/bs";
 
@@ -12,18 +12,21 @@ const Navbar = () => {
     >
       <nav className="h-8 flex mx-2 sm:mx-4 lg:mx-8 mt-6 text-black dark:text-white gap-2 text-md">
         <Link
+          viewTransition
           to="/"
           className={`navbar-link font-bold  ${location.pathname === "/" && "current"}`}
         >
           Chris Yates
         </Link>
         <Link
+          viewTransition
           to="/resume"
           className={`navbar-link ${location.pathname === "/resume" && "current"}`}
         >
           Resume
         </Link>
         <Link
+          viewTransition
           to="/contact"
           className={`navbar-link ${location.pathname === "/contact" && "current"}`}
         >

@@ -1,32 +1,38 @@
-.route{
-	height: 100vh;
+.route {
+    height: 100vh;
+    view-transition-name: route;
 }
 
-.route-enter {
-	filter: blur(20px);
-	transform: scale(1.1);
+::view-transition-old(route) {
+    animation: 150ms ease-in-out both 0s blur-out;
 }
 
-.route-enter-active {
-	filter: blur(0px);
-	transform: scale(1);
-	transition: filter .25s, transform .25s;
+::view-transition-new(route) {
+    animation: 150ms ease-in-out both 150ms blur-in;
 }
 
-.route-exit {
-	filter: blur(0px);
-	opacity: 100%;
-	transform: scale(1);
-	backdrop-filter: blur(40px);
+@keyframes blur-in {
+    from {
+        filter: blur(20px);
+        opacity: 0;
+        scale: 1.1;
+    }
+    to {
+        filter: blur(0px);
+        opacity: 1;
+        scale: 1;
+    }
 }
 
-.route-exit-active {
-	filter: blur(20px);
-	transform: scale(0.9);
-	opacity: 0;
-	transition: filter .25s, opacity .25s, transform .25s;
-}
-
-body:has(.route-enter-active), body:has(.route-exit-active){
-	overflow: hidden;
+@keyframes blur-out {
+    from {
+        filter: blur(0px);
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        filter: blur(20px);
+        opacity: 0;
+        scale: 0.9;
+    }
 }

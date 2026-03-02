@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import Loading from "../components/Loading";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import PageScaffold from "../components/PageScaffold";
 const Contact = () => {
   const navigate = useNavigate();
@@ -65,7 +65,11 @@ const Contact = () => {
         <p>
           {" "}
           If you want more info about my existing work, check out my{" "}
-          <Link to="/resume" className="underline hover:cursor-pointer">
+          <Link
+            to="/resume"
+            className="underline hover:cursor-pointer"
+            viewTransition
+          >
             resume
           </Link>
           .

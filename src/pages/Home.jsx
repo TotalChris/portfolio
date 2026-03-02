@@ -1,5 +1,4 @@
 import SlowPhotoCarousel from "../components/SlowPhotoCarousel";
-import { Link } from "react-router-dom";
 import Chris1 from "../assets/carousel/Chris-01.webp";
 import Chris2 from "../assets/carousel/Chris-02.webp";
 import Chris3 from "../assets/carousel/Chris-03.webp";
@@ -14,11 +13,9 @@ import Chris11 from "../assets/carousel/Chris-11.webp";
 import Chris12 from "../assets/carousel/Chris-12.webp";
 import Chris13 from "../assets/carousel/Chris-13.webp";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <title>Chris Yates | Home</title>
@@ -50,31 +47,13 @@ const Home = () => {
             <p className="py-4" style={{ maxWidth: "440px" }}>
               I&apos;m a 25-year-old web developer based in the United States. I
               have big dreams about what the web and its portability and
-              capability offers us. I have extensive experience in vanilla web
-              design, and I am familiar with popular frameworks like React,
-              Next.js, and more.
+              capability offers us.
             </p>
-            <div className="flex sm:flex-row flex-col gap-2">
-              <button
-                className="btn-wire"
-                onClick={() => {
-                  navigate("/resume");
-                }}
-              >
-                My Resume
-              </button>
-              <Link to="https://github.com/totalchris" className="btn-wire">
-                My GitHub
-              </Link>
-              <button
-                className="btn-wire"
-                onClick={() => {
-                  navigate("/contact");
-                }}
-              >
-                Contact Me
-              </button>
-            </div>
+            <p className="py-4" style={{ maxWidth: "440px" }}>
+              I currently work as a frontend developer at Lake Trust Credit
+              Union, where we build the future of member-focused digital banking
+              experiences.
+            </p>
           </div>
         </div>
       </div>

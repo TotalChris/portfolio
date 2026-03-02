@@ -5,7 +5,7 @@ import { BsArrowUpRight, BsSortDown, BsSortUpAlt } from "react-icons/bs";
 import Tag from "../components/Tag";
 import tn from "../assets/projectAssets/tn.png";
 import jt from "../assets/projectAssets/jt.png";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router";
 import ProjectCard from "../components/ProjectCard";
 import PageScaffold from "../components/PageScaffold";
 
@@ -108,6 +108,7 @@ const Resume = () => {
             <Link
               to="/contact"
               className="mt-2 sm:mt-0 btn-wire w-full sm:w-auto"
+              viewTransition
             >
               Let&apos;s Make Cool Stuff
             </Link>
