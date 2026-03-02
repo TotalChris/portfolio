@@ -38,7 +38,7 @@ const Home = () => {
               Chris12,
               Chris13,
             ]}
-            className="lg:w-3/5"
+            className="photo-carousel lg:w-3/5"
           />
           <div className="lg:min-w-1/2 lg:p-0 py-8 px-4 flex flex-col justify-between">
             <h1 className="sm:text-5xl text-4xl text-semibold tracking-tight -skew-x-12">
