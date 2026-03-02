@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router";
 import "../styles/Navbar.css";
-import { BsGithub } from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Navbar = () => {
   const location = useLocation();
@@ -33,10 +33,22 @@ const Navbar = () => {
           Contact
         </Link>
         <a
+          href="https://x.com/chrisyatesdev"
+          className={`navbar-link endcap ${location.pathname === "#" && "current"}`}
+        >
+          <BsTwitter />
+        </a>
+        <a
           href="https://github.com/totalchris/"
           className={`navbar-link endcap ${location.pathname === "#" && "current"}`}
         >
           <BsGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/chrisyatesdev"
+          className={`navbar-link endcap ${location.pathname === "#" && "current"}`}
+        >
+          <BsLinkedin />
         </a>
       </nav>
     </div>
