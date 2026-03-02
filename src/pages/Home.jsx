@@ -13,8 +13,6 @@ import Chris11 from "../assets/carousel/Chris-11.webp";
 import Chris12 from "../assets/carousel/Chris-12.webp";
 import Chris13 from "../assets/carousel/Chris-13.webp";
 
-import { useNavigate } from "react-router";
-
 const Home = () => {
   return (
     <>
