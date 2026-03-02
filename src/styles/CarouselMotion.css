@@ -12,10 +12,6 @@
         opacity: 0;
     }
 
-    60% {
-        opacity: 0;
-    }
-
     100% {
         opacity: 1;
     }
@@ -24,10 +20,6 @@
 @keyframes carousel-fade-out {
     0% {
         opacity: 1;
-    }
-
-    40% {
-        opacity: 0;
     }
 
     100% {
@@ -41,12 +33,12 @@
 
 ::view-transition-group(carousel) {
     animation-timing-function: ease;
-    animation-duration: 0.5s;
+    animation-duration: 0.25s;
 }
 
 ::view-transition-image-pair(carousel) {
     animation-timing-function: ease;
-    animation-duration: 0.5s;
+    animation-duration: 0.25s;
     animation-name: carousel-fade-in;
 }
 
