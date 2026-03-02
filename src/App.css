@@ -4,11 +4,11 @@
 }
 
 ::view-transition-old(route) {
-    animation: 150ms ease-in-out both 0s blur-out;
+    animation: 0.25s ease-in-out both 0s blur-out;
 }
 
 ::view-transition-new(route) {
-    animation: 150ms ease-in-out both 150ms blur-in;
+    animation: 0.25s ease-in-out both 0.25s blur-in;
 }
 
 @keyframes blur-in {
